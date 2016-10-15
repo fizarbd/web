@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>RSS (feed) Templates</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Like all other templates, you can use a single RSS template to generate
+all of your RSS feeds, or you can create a specific template for each
+individual feed. Unlike other templates, <em>Hugo ships with its own ATOM
+2.0 RSS template. In most cases this will be sufficient, and an RSS
+template will not need to be provided by the user.</em></p>
+
+<p>RSS pages are of the type &ldquo;node&rdquo; and have all the <a href="http://fizarbd.github.io/web/layout/variables/">node
+variables</a> available to use in the templates.</p>
+
+<h2 id="which-template-will-be-rendered">Which Template will be rendered?</h2>
+
+<p>Hugo uses a set of rules to figure out which template to use when
+rendering a specific page.</p>
+
+<p>Hugo will use the following prioritized list. If a file isn’t present,
+then the next one in the list will be used. This enables you to craft
+specific layouts when you want to without creating more templates
+than necessary. For most sites only the _default file at the end of
+the list will be needed.</p>
+
+<h3 id="main-rss">Main RSS</h3>
+
+<ul>
+<li>/layouts/rss.xml</li>
+<li>/layouts/_default/rss.xml</li>
+<li>__internal/rss.xml</li>
+</ul>
+
+<h3 id="section-rss">Section RSS</h3>
+
+<ul>
+<li>/layouts/section/<code>SECTION</code>.rss.xml</li>
+<li>/layouts/_default/rss.xml</li>
+<li>/themes/<code>THEME</code>/layouts/section/<code>SECTION</code>.rss.xml</li>
+<li>/themes/<code>THEME</code>/layouts/_default/rss.xml</li>
+<li>__internal/rss.xml</li>
+</ul>
+
+<h3 id="taxonomy-rss">Taxonomy RSS</h3>
+
+<ul>
+<li>/layouts/taxonomy/<code>SINGULAR</code>.rss.xml</li>
+<li>/layouts/_default/rss.xml</li>
+<li>/themes/<code>THEME</code>/layouts/taxonomy/<code>SINGULAR</code>.rss.xml</li>
+<li>/themes/<code>THEME</code>/layouts/_default/rss.xml</li>
+<li>__internal/rss.xml</li>
+</ul>
+
+<h2 id="configuring-rss">Configuring RSS</h2>
+
+<p>If the following are provided in the site’s config file, then they
+will be included in the RSS output. Example values are provided.</p>
+
+<pre><code>languageCode = &quot;en-us&quot;
+copyright = &quot;This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.&quot;
+
+[author]
+    name = &quot;My Name Here&quot;
+</code></pre>
+
+<h2 id="the-embedded-rss-xml">The Embedded rss.xml</h2>
+
+<p>This is the RSS template that ships with Hugo. It adheres to the
+ATOM 2.0 Spec.</p>
+
+<pre><code>&lt;rss version=&quot;2.0&quot; xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot;&gt;
+  &lt;channel&gt;
+      &lt;title&gt;{{ .Title }} on {{ .Site.Title }} &lt;/title&gt;
+      &lt;generator uri=&quot;https://gohugo.io&quot;&gt;Hugo&lt;/generator&gt;
+    &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+    {{ with .Site.LanguageCode }}&lt;language&gt;{{.}}&lt;/language&gt;{{end}}
+    {{ with .Site.Author.name }}&lt;author&gt;{{.}}&lt;/author&gt;{{end}}
+    {{ with .Site.Copyright }}&lt;copyright&gt;{{.}}&lt;/copyright&gt;{{end}}
+    &lt;updated&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 MST&quot; }}&lt;/updated&gt;
+    {{ range first 15 .Data.Pages }}
+    &lt;item&gt;
+      &lt;title&gt;{{ .Title }}&lt;/title&gt;
+      &lt;link&gt;{{ .Permalink }}&lt;/link&gt;
+      &lt;pubDate&gt;{{ .Date.Format &quot;Mon, 02 Jan 2006 15:04:05 MST&quot; }}&lt;/pubDate&gt;
+      {{with .Site.Author.name}}&lt;author&gt;{{.}}&lt;/author&gt;{{end}}
+      &lt;guid&gt;{{ .Permalink }}&lt;/guid&gt;
+      &lt;description&gt;{{ .Content | html }}&lt;/description&gt;
+    &lt;/item&gt;
+    {{ end }}
+  &lt;/channel&gt;
+&lt;/rss&gt;
+</code></pre>
+
+<p><em>Important: Hugo will automatically add the following header line to this file
+on render… please don&rsquo;t include this in the template as it&rsquo;s not valid HTML.</em></p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot; ?&gt;
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

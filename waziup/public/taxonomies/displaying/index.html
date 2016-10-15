@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Displaying Taxonomies</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>There are four common ways you can display the data in your
+taxonomies in addition to the automatic taxonomy pages created by hugo
+using the <a href="http://fizarbd.github.io/web/templates/list">list templates</a>:</p>
+
+<ol>
+<li>For a given piece of content, you can list the terms attached</li>
+<li>For a given piece of content, you can list other content with the same
+term</li>
+<li>You can list all terms for a taxonomy</li>
+<li>You can list all taxonomies (with their terms)</li>
+</ol>
+
+<h2 id="1-displaying-taxonomy-terms-assigned-to-this-content">1. Displaying taxonomy terms assigned to this content</h2>
+
+<p>Within your content templates, you may wish to display
+the taxonomies that that piece of content is assigned to.</p>
+
+<p>Because we are leveraging the front matter system to
+define taxonomies for content, the taxonomies assigned to
+each content piece are located in the usual place
+(.Params.<code>plural</code>).</p>
+
+<h3 id="example">Example</h3>
+
+<pre><code>&lt;ul id=&quot;tags&quot;&gt;
+  {{ range .Params.tags }}
+    &lt;li&gt;&lt;a href=&quot;tags/{{ . | urlize }}&quot;&gt;{{ . }}&lt;/a&gt; &lt;/li&gt;
+  {{ end }}
+&lt;/ul&gt;
+</code></pre>
+
+<h2 id="2-listing-content-with-the-same-taxonomy-term">2. Listing content with the same taxonomy term</h2>
+
+<p>First, you may be asking why you would use this. If you are using a
+taxonomy for something like a series of posts, this is exactly how you
+would do it. It’s also an quick and dirty way to show some related
+content.</p>
+
+<h3 id="example-1">Example</h3>
+
+<pre><code>&lt;ul&gt;
+  {{ range .Site.Taxonomies.series.golang }}
+    &lt;li&gt;&lt;a href=&quot;{{ .Url }}&quot;&gt;{{ .Name }}&lt;/a&gt;&lt;/li&gt;
+  {{ end }}
+&lt;/ul&gt;
+</code></pre>
+
+<h2 id="3-listing-all-content-in-a-given-taxonomy">3. Listing all content in a given taxonomy</h2>
+
+<p>This would be very useful in a sidebar as “featured content”. You could
+even have different sections of “featured content” by assigning
+different terms to the content.</p>
+
+<h3 id="example-2">Example</h3>
+
+<pre><code>&lt;section id=&quot;menu&quot;&gt;
+    &lt;ul&gt;
+        {{ range $key, $taxonomy := .Site.Taxonomies.featured }}
+        &lt;li&gt; {{ $key }} &lt;/li&gt;
+        &lt;ul&gt;
+            {{ range $taxonomy.Pages }}
+            &lt;li hugo-nav=&quot;{{ .RelPermalink}}&quot;&gt;&lt;a href=&quot;{{ .Permalink}}&quot;&gt; {{ .LinkTitle }} &lt;/a&gt; &lt;/li&gt;
+            {{ end }}
+        &lt;/ul&gt;
+        {{ end }}
+    &lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+
+<h2 id="4-rendering-a-site-s-taxonomies">4. Rendering a Site&rsquo;s Taxonomies</h2>
+
+<p>If you wish to display the list of all keys for an taxonomy, you can find retrieve
+them from the <code>.Site</code> variable which is available on every page.</p>
+
+<p>This may take the form of a tag cloud, a menu or simply a list.</p>
+
+<p>The following example displays all tag keys:</p>
+
+<h3 id="example-3">Example</h3>
+
+<pre><code>&lt;ul id=&quot;all-tags&quot;&gt;
+  {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+    &lt;li&gt;&lt;a href=&quot;/tags/{{ $name | urlize }}&quot;&gt;{{ $name }}&lt;/a&gt;&lt;/li&gt;
+  {{ end }}
+&lt;/ul&gt;
+</code></pre>
+
+<h3 id="complete-example">Complete Example</h3>
+
+<p>This example will list all taxonomies, each of their keys and all the content assigned to each key.</p>
+
+<pre><code>&lt;section&gt;
+  &lt;ul&gt;
+    {{ range $taxonomyname, $taxonomy := .Site.Taxonomies }}
+      &lt;li&gt;&lt;a href=&quot;/{{ $taxonomyname | urlize }}&quot;&gt;{{ $taxonomyname }}&lt;/a&gt;
+        &lt;ul&gt;
+          {{ range $key, $value := $taxonomy }}
+          &lt;li&gt; {{ $key }} &lt;/li&gt;
+                &lt;ul&gt;
+                {{ range $value.Pages }}
+                    &lt;li hugo-nav=&quot;{{ .RelPermalink}}&quot;&gt;&lt;a href=&quot;{{ .Permalink}}&quot;&gt; {{ .LinkTitle }} &lt;/a&gt; &lt;/li&gt;
+                {{ end }}
+                &lt;/ul&gt;
+          {{ end }}
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    {{ end }}
+  &lt;/ul&gt;
+&lt;/section&gt;
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

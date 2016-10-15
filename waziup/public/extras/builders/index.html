@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hugo Builders</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo provides the functionality to quickly get a site, theme or page
+started.</p>
+
+<h2 id="new-site">New Site</h2>
+
+<p>Want to get a site built quickly?</p>
+
+<pre><code>hugo new site /path/to/site
+</code></pre>
+
+<p>Hugo will create all the needed directories and files to get started
+quickly.</p>
+
+<p>Hugo will only touch the files and create the directories (in the right
+places), <a href="http://fizarbd.github.io/web/overview/configuration">configuration</a> and content are up to
+you&hellip; but luckily we have builders for content (see below).</p>
+
+<h2 id="new-theme">New Theme</h2>
+
+<p>Want to design a new theme?</p>
+
+<pre><code>hugo new theme `THEME_NAME`
+</code></pre>
+
+<p>Run from your working directory, this will create a new theme with all
+the needed files in your themes directory. Hugo will provide you with a
+license and theme.toml file with most of the work done for you.</p>
+
+<p>Follow the <a href="http://fizarbd.github.io/web/themes/creation">Theme Creation Guide</a> once the builder is
+done.</p>
+
+<h2 id="new-content">New Content</h2>
+
+<p>You will use this builder the most of all. Every time you want to create
+a new piece of content, the content builder will get you started right.</p>
+
+<p>Leveraging <a href="http://fizarbd.github.io/web/content/archetypes">content archetypes</a> the content builder
+will not only insert the current date and appropriate metadata, but it
+will pre-populate values based on the content type.</p>
+
+<pre><code>hugo new relative/path/to/content
+</code></pre>
+
+<p>This assumes it is being run from your working directory and the content
+path starts from your content directory.</p>
+
+<p>I typically keep two different terminals open, one to run <code>hugo server
+--watch</code>, and another to use the builders to create new content.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

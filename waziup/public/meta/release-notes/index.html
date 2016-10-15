@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Release Notes</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<h2 id="0-12-0-sept-1-2014"><strong>0.12.0</strong> Sept 1, 2014</h2>
+
+<p>A lot has happened since Hugo v0.11.0 was released. Most of the work has been
+focused on polishing the theme engine and adding critical functionality to the
+templates.</p>
+
+<p>This release represents over 90 code commits from 28 different contributors.</p>
+
+<ul>
+<li>10 <a href="https://github.com/spf13/hugoThemes">new themes</a> created by the community</li>
+<li>Fully themable <a href="http://fizarbd.github.io/web/templates/partials">Partials</a></li>
+<li><a href="http://fizarbd.github.io/web/templates/404/">404 template</a> support in themes</li>
+<li><a href="http://fizarbd.github.io/web/extras/shortcodes/">Shortcode</a> support in themes</li>
+<li><a href="http://fizarbd.github.io/web/templates/views/">Views</a> support in themes</li>
+<li>Inner <a href="http://fizarbd.github.io/web/extras/shortcodes/">shortcode</a> content now treated as Markdown</li>
+<li>Support for header ids in Markdown (# Header {#myid})</li>
+<li><a href="http://fizarbd.github.io/web/templates/list">Where</a> template function to filter lists of content, taxonomies, etc</li>
+<li><a href="http://fizarbd.github.io/web/templates/list">GroupBy</a> &amp; <a href="http://fizarbd.github.io/web/templates/list">GroupByDate</a> methods to group pages</li>
+<li>Taxonomy <a href="http://fizarbd.github.io/web/taxonomies/methods/">pages list</a> now sortable, filterable, limitable &amp; groupable</li>
+<li>General cleanup to taxonomies &amp; documentation to make it more clear and consistent</li>
+<li><a href="http://fizarbd.github.io/web/showcase/">Showcase</a> returned and has been expanded</li>
+<li>Pretty links now always have trailing slashes</li>
+<li><a href="http://fizarbd.github.io/web/overview/configuration/">BaseUrl</a> can now include a subdirectory</li>
+<li>Better feedback about draft &amp; future post rendering</li>
+<li>A variety of improvements to <a href="http://gohugo.io">the website</a></li>
+</ul>
+
+<h2 id="0-11-0-may-28-2014"><strong>0.11.0</strong> May 28, 2014</h2>
+
+<p>This release represents over 110 code commits from 29 different contributors.</p>
+
+<ul>
+<li>Considerably faster&hellip; about 3 - 4x faster on average</li>
+<li><a href="http://fizarbd.github.io/web/extras/livereload">Live Reload</a>. Hugo will automatically reload the browser when the build is complete</li>
+<li>Theme engine w/<a href="http://github.com/spf13/hugoThemes">Theme Repository</a></li>
+<li><a href="http://fizarbd.github.io/web/extras/menus">Menu system</a> with support for active page</li>
+<li><a href="http://fizarbd.github.io/web/extras/builders">Builders</a> to quickly create a new site, content or theme</li>
+<li><a href="http://fizarbd.github.io/web/templates/sitemap">XML sitemap</a> generation</li>
+<li><a href="http://fizarbd.github.io/web/extras/comments">Integrated Disqus</a> support</li>
+<li>Streamlined <a href="http://fizarbd.github.io/web/templates/overview">template organization</a></li>
+<li><a href="http://gohugo.io">Brand new docs site</a></li>
+<li>Support for publishDate which allows for posts to be dated in the future</li>
+<li>More <a href="http://fizarbd.github.io/web/content/ordering">sort</a> options</li>
+<li>Logging support</li>
+<li>Much better error handling</li>
+<li>More informative verbose output</li>
+<li>Renamed Indexes &gt; <a href="http://fizarbd.github.io/web/taxonomies/overview">Taxonomies</a></li>
+<li>Renamed Chrome &gt; <a href="http://fizarbd.github.io/web/templates/partials">Partials</a></li>
+</ul>
+
+<h2 id="0-10-0-march-1-2014"><strong>0.10.0</strong> March 1, 2014</h2>
+
+<p>This release represents over 110 code commits from 29 different contributors.</p>
+
+<ul>
+<li><a href="http://fizarbd.github.io/web/extras/highlighting">Syntax highlighting</a> powered by pygments (<strong>slow</strong>)</li>
+<li>Ability to <a href="http://fizarbd.github.io/web/content/ordering">sort content</a> many more ways</li>
+<li>Automatic <a href="http://fizarbd.github.io/web/extras/toc">table of contents</a> generation</li>
+<li>Support for unicode urls, aliases and indexes</li>
+<li>Configurable per-section <a href="http://fizarbd.github.io/web/extras/permalinks">permalink</a> pattern support</li>
+<li>Support for <a href="http://fizarbd.github.io/web/extras/shortcodes">paired shortcodes</a></li>
+<li>Shipping with some <a href="http://fizarbd.github.io/web/extras/shortcodes">shortcodes</a> (highlight &amp; figure)</li>
+<li>Adding <a href="http://fizarbd.github.io/web/extras/urls">canonify</a> option to keep urls relative</li>
+<li>A bunch of <a href="http://fizarbd.github.io/web/layout/functions">additional template functions</a></li>
+<li>Watching very large sites now works on mac</li>
+<li>RSS generation improved. Limited to 50 items by default, can limit further in <a href="http://fizarbd.github.io/web/layout/rss">template</a></li>
+<li>Boolean params now supported in <a href="http://fizarbd.github.io/web/content/front-matter">frontmatter</a></li>
+<li>Launched website <a href="http://fizarbd.github.io/web/showcase">showcase</a>. Show off your own hugo site!</li>
+<li>A bunch of <a href="https://github.com/spf13/hugo/commits/master">bug fixes</a></li>
+</ul>
+
+<h2 id="0-9-0-november-15-2013"><strong>0.9.0</strong> November 15, 2013</h2>
+
+<p>This release represents over 220 code commits from 22 different contributors.</p>
+
+<ul>
+<li>New <a href="http://fizarbd.github.io/web/overview/usage">command based interface</a> similar to git (hugo server -s ./ )</li>
+<li>Amber template support</li>
+<li><a href="http://fizarbd.github.io/web/extras/aliases">Aliases</a> (redirects)</li>
+<li>Support for top level pages (in addition to homepage)</li>
+<li>Complete overhaul of the documentation site</li>
+<li>Full Windows support</li>
+<li>Better index support including <a href="http://fizarbd.github.io/web/content/ordering">ordering by content weight</a></li>
+<li>Add params to site config, available in .Site.Params from templates</li>
+<li>Friendlier json support</li>
+<li>Support for html &amp; xml content (with frontmatter support)</li>
+<li>Support for <a href="http://fizarbd.github.io/web/content/summaries">summary</a> content divider (&lt;!–more–&gt;)</li>
+<li>HTML in <a href="http://fizarbd.github.io/web/content/summaries">summary</a> (when using divider)</li>
+<li>Added <a href="http://fizarbd.github.io/web/layout/variables">&ldquo;Minutes to Read&rdquo;</a> functionality</li>
+<li>Support for a custom 404 page</li>
+<li>Cleanup of how content organization is handled</li>
+<li>Loads of unit and performance tests</li>
+<li>Integration with travis ci</li>
+<li>Static directory now watched and copied on any addition or modification</li>
+<li>Support for relative permalinks</li>
+<li>Fixed watching being triggered multiple times for the same event</li>
+<li>Watch now ignores temp files (as created by Vim)</li>
+<li>Configurable number of posts on <a href="http://fizarbd.github.io/web/layout/homepage/">homepage</a></li>
+<li><a href="http://fizarbd.github.io/web/content/front-matter">Front matter</a> supports multiple types (int, string, date, float)</li>
+<li>Indexes can now use a default template</li>
+<li>Addition of truncated bool to content to determine if should show &lsquo;more&rsquo; link</li>
+<li>Support for <a href="http://fizarbd.github.io/web/layout/variables">linkTitles</a></li>
+<li>Better handling of most errors with directions on how to resolve</li>
+<li>Support for more date / time formats</li>
+<li>Support for go 1.2</li>
+<li>Support for <code>first</code> in templates</li>
+</ul>
+
+<h2 id="0-8-0-august-2-2013"><strong>0.8.0</strong> August 2, 2013</h2>
+
+<p>This release represents over 65 code commits from 6 different contributors.</p>
+
+<ul>
+<li>Added support for pretty urls (filename/index.html vs filename.html)</li>
+<li>Hugo supports a destination directory</li>
+<li>Will efficiently sync content in static to destination directory</li>
+<li>Cleaned up options.. now with support for short and long options</li>
+<li>Added support for TOML</li>
+<li>Added support for YAML</li>
+<li>Added support for Previous &amp; Next</li>
+<li>Added support for indexes for the indexes</li>
+<li>Better Windows compatibility</li>
+<li>Support for series</li>
+<li>Adding verbose output</li>
+<li>Loads of bugfixes</li>
+</ul>
+
+<h2 id="0-7-0-july-4-2013"><strong>0.7.0</strong> July 4, 2013</h2>
+
+<ul>
+<li>Hugo now includes a simple server</li>
+<li>First public release</li>
+</ul>
+
+<h2 id="0-6-0-july-2-2013"><strong>0.6.0</strong> July 2, 2013</h2>
+
+<ul>
+<li>Hugo includes an example documentation site which it builds</li>
+</ul>
+
+<h2 id="0-5-0-june-25-2013"><strong>0.5.0</strong> June 25, 2013</h2>
+
+<ul>
+<li>Hugo is quite usable and able to build spf13.com</li>
+</ul>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

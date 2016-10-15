@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Ordering Taxonomies</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo provides the ability to both:</p>
+
+<ol>
+<li>Order the way the keys for an taxonomy are displayed</li>
+<li>Order the way taxonomyed content appears</li>
+</ol>
+
+<h2 id="ordering-taxonomies">Ordering Taxonomies</h2>
+
+<p>Taxonomies can be ordered by either alphabetical key or by the number of content pieces assigned to that key.</p>
+
+<h3 id="order-alphabetically-example">Order Alphabetically Example:</h3>
+
+<pre><code>&lt;ul&gt;
+{{ $data := .Data }}
+{{ range $key, $value := .Data.Taxonomy.Alphabetical }}
+&lt;li&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $value.Name | urlize }}&quot;&gt; {{ $value.Name }} &lt;/a&gt; {{ $value.Count }} &lt;/li&gt;
+{{ end }}
+&lt;/ul&gt;
+</code></pre>
+
+<h3 id="order-by-popularity-example">Order by Popularity Example:</h3>
+
+<pre><code>&lt;ul&gt;
+{{ $data := .Data }}
+{{ range $key, $value := .Data.Taxonomy.ByCount }}
+&lt;li&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $value.Name | urlize }}&quot;&gt; {{ $value.Name }} &lt;/a&gt; {{ $value.Count }} &lt;/li&gt;
+{{ end }}
+&lt;/ul&gt;
+</code></pre>
+
+<p><a href="http://fizarbd.github.io/web/taxonomies/lists/">See Also Taxonomy Lists</a></p>
+
+<h2 id="ordering-content-within-taxonomies">Ordering Content within Taxonomies</h2>
+
+<p>Hugo uses both <strong>Date</strong> and <strong>Weight</strong> to order content within taxonomies.</p>
+
+<p>Each piece of content in Hugo can optionally be assigned a date.
+It can also be assigned a weight for each taxonomy it is assigned to.</p>
+
+<p>When iterating over content within taxonomies the default sort is first by weight then by date. This means that if the weights for two pieces of content are the same, than the more recent content will be displayed first. The default weight for any piece of content is 0.</p>
+
+<h3 id="assigning-weight">Assigning Weight</h3>
+
+<p>Content can be assigned weight for each taxonomy that it&rsquo;s assigned to.</p>
+
+<pre><code>+++
+tags = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot; ]
+tags_weight = 22
+categories = [&quot;d&quot;]
+title = &quot;foo&quot;
+categories_weight = 44
++++
+Front Matter with weighted tags and categories
+</code></pre>
+
+<p>The convention is <code>taxonomyname_weight</code>.</p>
+
+<p>In the above example, this piece of content has a weight of 22 which applies to the sorting when rendering the pages assigned to the &ldquo;a&rdquo;, &ldquo;b&rdquo; and &ldquo;c&rdquo; values of the &lsquo;tag&rsquo; taxonomy.</p>
+
+<p>It has also been assigned the weight of 44 when rendering the &rsquo;d&rsquo; category.</p>
+
+<p>With this the same piece of content can appear in different positions in different taxonomies.</p>
+
+<p>Currently taxonomies only support the default ordering of content which is weight -&gt; date.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

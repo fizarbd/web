@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sitemap Template</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>A single Sitemap template is used to generate the <code>sitemap.xml</code> file.
+Hugo automatically comes with this template file. <strong>No work is needed on
+the users part unless they want to customize the sitemap.xml.</strong></p>
+
+<p>This page is of the type &ldquo;node&rdquo; and have all the <a href="http://fizarbd.github.io/web/layout/variables/">node
+variables</a> available to use in this template
+along with Sitemap-specific ones:</p>
+
+<p><strong>.Sitemap.ChangeFreq</strong> The page change frequency<br>
+<strong>.Sitemap.Priority</strong> The priority of the page<br></p>
+
+<p>In addition to the standard node variables, the homepage has access to all
+site pages through <code>.Data.Pages</code>.</p>
+
+<p>If provided Hugo will use /layouts/sitemap.xml instead of the internal
+one.</p>
+
+<h2 id="hugo-s-sitemap-xml">Hugo’s sitemap.xml</h2>
+
+<p>This template respects the version 0.9 of the <a href="http://www.sitemaps.org/protocol.html">Sitemap
+Protocol</a>.</p>
+
+<pre><code>&lt;urlset xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+  {{ range .Data.Pages }}
+  &lt;url&gt;
+    &lt;loc&gt;{{ .Permalink }}&lt;/loc&gt;
+    &lt;lastmod&gt;{{ safeHtml ( .Date.Format &quot;2006-01-02T15:04:05-07:00&quot; ) }}&lt;/lastmod&gt;{{ with .Sitemap.ChangeFreq }}
+    &lt;changefreq&gt;{{ . }}&lt;/changefreq&gt;{{ end }}{{ if ge .Sitemap.Priority 0.0 }}
+    &lt;priority&gt;{{ .Sitemap.Priority }}&lt;/priority&gt;{{ end }}
+  &lt;/url&gt;
+  {{ end }}
+&lt;/urlset&gt;
+</code></pre>
+
+<p><em>Important: Hugo will automatically add the following header line to this file
+on render&hellip;please don&rsquo;t include this in the template as it&rsquo;s not valid HTML.</em></p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot; ?&gt;
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

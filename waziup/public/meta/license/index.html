@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>License</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo is released under the Simple Public License.</p>
+
+<h2 id="simple-public-license-simpl-2-0">Simple Public License (SimPL-2.0)</h2>
+
+<h3 id="preamble">Preamble</h3>
+
+<p>This Simple Public License 2.0 (SimPL-2.0 for short) is a plain language
+implementation of GPL 2.0.  The words are different, but the goal is the
+same - to guarantee for all users the freedom to share and change
+software.  If anyone wonders about the meaning of the SimPL, they should
+interpret it as consistent with GPL 2.0.</p>
+
+<h2 id="simple-public-license-simpl-2-0-1">Simple Public License (SimPL) 2.0</h2>
+
+<p>The SimPL applies to the software&rsquo;s source and object code and comes
+with any rights that I have in it (other than trademarks). You agree to
+the SimPL by copying, distributing, or making a derivative work of the
+software.</p>
+
+<p>You get the royalty free right to:</p>
+
+<ul>
+<li>Use the software for any purpose;</li>
+<li>Make derivative works of it (this is called a &ldquo;Derived Work&rdquo;);</li>
+<li>Copy and distribute it and any Derived Work.</li>
+</ul>
+
+<p>If you distribute the software or a Derived Work, you must give back to
+the community by:</p>
+
+<ul>
+<li>Prominently noting the date of any changes you make;</li>
+<li>Leaving other people&rsquo;s copyright notices, warranty disclaimers, and
+license terms in place;</li>
+<li>Providing the source code, build scripts, installation scripts, and
+interface definitions in a form that is easy to get and best to
+modify;</li>
+<li>Licensing it to everyone under SimPL, or substantially similar terms
+(such as GPL 2.0), without adding further restrictions to the rights
+provided;</li>
+<li>Conspicuously announcing that it is available under that license.</li>
+</ul>
+
+<p>There are some things that you must shoulder:</p>
+
+<ul>
+<li>You get NO WARRANTIES. None of any kind;</li>
+<li>If the software damages you in any way, you may only recover direct
+damages up to the amount you paid for it (that is zero if you did
+not pay anything). You may not recover any other damages, including
+those called &ldquo;consequential damages.&rdquo; (The state or country where
+you live may not allow you to limit your liability in this way, so
+this may not apply to you);</li>
+</ul>
+
+<p>The SimPL continues perpetually, except that your license rights end
+automatically if:</p>
+
+<ul>
+<li>You do not abide by the &ldquo;give back to the community&rdquo; terms (your
+licensees get to keep their rights if they abide);</li>
+<li>Anyone prevents you from distributing the software under the terms
+of the SimPL.</li>
+</ul>
+
+<h2 id="license-for-the-license">License for the License</h2>
+
+<p>You may do anything that you want with the SimPL text; it&rsquo;s a license
+form to use in any way that you find helpful.  To avoid confusion,
+however, if you change the terms in any way then you may not call your
+license the Simple Public License or the SimPL (but feel free to
+acknowledge that your license is &ldquo;based on the Simple Public License&rdquo;).</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

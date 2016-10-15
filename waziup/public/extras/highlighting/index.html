@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Syntax Highlighting</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo provides the ability for you to highlight source code in two different
+ways &mdash; either pre-processed server side from your content, or to defer
+the processing to the client side, using a JavaScript library. The advantage of
+server side is that it doesn’t depend on a JavaScript library and consequently
+works very well when read from an RSS feed. The advantage of client side is that
+it doesn’t cost anything when building your site and some of the highlighting
+scripts available cover more languages than Pygments does.</p>
+
+<p>For the pre-processed approach, Highlighting is performed by an external
+Python-based program called <a href="http://pygments.org">Pygments</a> and is triggered
+via an embedded shortcode. If Pygments is absent from the path, it will
+silently simply pass the content along unhighlighted.</p>
+
+<h2 id="server-side">Server-side</h2>
+
+<h3 id="disclaimers">Disclaimers</h3>
+
+<ul>
+<li><strong>Warning:</strong> Pygments is relatively slow. Expect much longer build times when using server-side highlighting.</li>
+<li>Languages available depends on your Pygments installation.</li>
+<li>Styles are inline in order to be supported in syndicated content when references
+to style sheets are not carried over.</li>
+<li>We have sought to have the simplest interface possible, which consequently
+limits configuration. An ambitious user is encouraged to extend the current
+functionality to offer more customization.</li>
+<li>You can change appearance with config options <code>pygmentsstyle</code>(default
+<code>&quot;monokai&quot;</code>) and <code>pygmentsuseclasses</code>(defaut <code>false</code>).</li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+
+<p>Highlight takes exactly one required parameter of language and requires a
+closing shortcode.</p>
+
+<h3 id="example">Example</h3>
+
+<p>The example has an extra space between the “{{” and “%” characters to prevent rendering here.</p>
+
+<pre><code>{{ % highlight html %}}
+&lt;section id=&quot;main&quot;&gt;
+  &lt;div&gt;
+   &lt;h1 id=&quot;title&quot;&gt;{{ .Title }}&lt;/h1&gt;
+    {{ range .Data.Pages }}
+        {{ .Render &quot;summary&quot;}}
+    {{ end }}
+  &lt;/div&gt;
+&lt;/section&gt;
+{{ % /highlight %}}
+</code></pre>
+
+<h3 id="example-output">Example Output</h3>
+
+<pre><code>&lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span style=&quot;color: #a6e22e&quot;&gt;id=&lt;/span&gt;&lt;span style=&quot;color: #e6db74&quot;&gt;&amp;quot;main&amp;quot;&lt;/span&gt;&lt;span style=&quot;color: #f92672&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+   &lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span style=&quot;color: #a6e22e&quot;&gt;id=&lt;/span&gt;&lt;span style=&quot;color: #e6db74&quot;&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span style=&quot;color: #f92672&quot;&gt;&amp;gt;&lt;/span&gt;{{ .Title }}&lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    {{ range .Data.Pages }}
+        {{ .Render &amp;quot;summary&amp;quot;}}
+    {{ end }}
+  &lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span style=&quot;color: #f92672&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
+</code></pre>
+
+<h2 id="client-side">Client-side</h2>
+
+<p>Alternatively, code highlighting can be done in client-side JavaScript.</p>
+
+<p>Client-side syntax highlighting is very simple to add. You&rsquo;ll need to pick
+a library and a corresponding theme. Some popular libraries are:</p>
+
+<ul>
+<li><a href="http://highlightjs.org/">Highlight.js</a></li>
+<li><a href="http://craig.is/making/rainbows">Rainbow</a></li>
+<li><a href="http://alexgorbatchev.com/SyntaxHighlighter/">Syntax Highlighter</a></li>
+<li><a href="https://code.google.com/p/google-code-prettify/">Google Prettify</a></li>
+</ul>
+
+<p>This example uses the popular <a href="http://highlightjs.org/">Highlight.js</a> library, hosted by <a href="http://yandex.ru/">Yandex</a>, a
+popular Russian search engine.</p>
+
+<p>In your <code>./layouts/partials/</code> (or <code>./layouts/chrome/</code>) folder, depending on your specific theme, there
+will be a snippet that will be included in every generated HTML page, such
+as <code>header.html</code> or <code>header.includes.html</code>. Simply add:</p>
+
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://yandex.st/highlightjs/8.0/styles/default.min.css&quot;&gt;
+&lt;script src=&quot;https://yandex.st/highlightjs/8.0/highlight.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;
+</code></pre>
+
+<p>You can of course use your own copy of these files, typically in <code>./static/</code>.</p>
+
+<p>Please see individual libraries documentation for how to implement the JavaScript-based libraries.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

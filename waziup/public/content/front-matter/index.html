@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Front Matter</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>The front matter is one of the features that gives Hugo its strength. It enables
+you to include the meta data of the content right with it. Hugo supports a few
+different formats, each with their own identifying tokens.</p>
+
+<p>Supported formats:</p>
+
+<ul>
+<li><strong>YAML</strong>, identified by &lsquo;<code>---</code>&rsquo;.</li>
+<li><strong>TOML</strong>, identified with &lsquo;<code>+++</code>&rsquo;.</li>
+<li><strong>JSON</strong>, a single JSON object which is surrounded by &lsquo;<code>{</code>&rsquo; and &lsquo;<code>}</code>&rsquo;, each on their own line.</li>
+</ul>
+
+<h3 id="yaml-example">YAML Example</h3>
+
+<pre><code>---
+title: &quot;spf13-vim 3.0 release and new website&quot;
+description: &quot;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&quot;
+tags: [ &quot;.vimrc&quot;, &quot;plugins&quot;, &quot;spf13-vim&quot;, &quot;vim&quot; ]
+date: &quot;2012-04-06&quot;
+categories:
+  - &quot;Development&quot;
+  - &quot;VIM&quot;
+slug: &quot;spf13-vim-3-0-release-and-new-website&quot;
+---
+Content of the file goes Here
+</code></pre>
+
+<h3 id="toml-example">TOML Example</h3>
+
+<pre><code>+++
+title = &quot;spf13-vim 3.0 release and new website&quot;
+description = &quot;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&quot;
+tags = [ &quot;.vimrc&quot;, &quot;plugins&quot;, &quot;spf13-vim&quot;, &quot;vim&quot; ]
+date = &quot;2012-04-06&quot;
+categories = [
+  &quot;Development&quot;,
+  &quot;VIM&quot;
+]
+slug = &quot;spf13-vim-3-0-release-and-new-website&quot;
++++
+Content of the file goes Here
+</code></pre>
+
+<h3 id="json-example">JSON Example</h3>
+
+<pre><code>{
+    &quot;title&quot;: &quot;spf13-vim 3.0 release and new website&quot;,
+    &quot;description&quot;: &quot;spf13-vim is a cross platform distribution of vim plugins and resources for Vim.&quot;,
+    &quot;tags&quot;: [ &quot;.vimrc&quot;, &quot;plugins&quot;, &quot;spf13-vim&quot;, &quot;vim&quot; ],
+    &quot;date&quot;: &quot;2012-04-06&quot;,
+    &quot;categories&quot;: [
+        &quot;Development&quot;,
+        &quot;VIM&quot;
+    ],
+    &quot;slug&quot;: &quot;spf13-vim-3-0-release-and-new-website&quot;,
+}
+Content of the file goes Here
+</code></pre>
+
+<h2 id="variables">Variables</h2>
+
+<p>There are a few predefined variables that Hugo is aware of and utilizes. The user can also create
+any variable they want to. These will be placed into the <code>.Params</code> variable available to the templates.
+Field names are always normalized to lowercase (e.g. <code>camelCase: true</code> is available as <code>.Params.camelcase</code>).</p>
+
+<h3 id="required">Required</h3>
+
+<ul>
+<li><strong>title</strong> The title for the content</li>
+<li><strong>description</strong> The description for the content</li>
+<li><strong>date</strong> The date the content will be sorted by</li>
+<li><strong>taxonomies</strong> These will use the field name of the plural form of the index (see tags and categories above)</li>
+</ul>
+
+<h3 id="optional">Optional</h3>
+
+<ul>
+<li><strong>redirect</strong> Mark the post as a redirect post</li>
+<li><strong>draft</strong> If true, the content will not be rendered unless <code>hugo</code> is called with <code>--buildDrafts</code></li>
+<li><strong>publishdate</strong> If in the future, content will not be rendered unless <code>hugo</code> is called with <code>--buildFuture</code></li>
+<li><strong>type</strong> The type of the content (will be derived from the directory automatically if unset)</li>
+<li><strong>weight</strong> Used for sorting</li>
+<li><strong>markup</strong> (Experimental) Specify &ldquo;rst&rdquo; for reStructuredText (requires
+        <code>rst2html</code>,) or &ldquo;md&rdquo; (default) for the Markdown</li>
+<li><strong>slug</strong> The token to appear in the tail of the URL
+<em>or</em><br></li>
+<li><strong>url</strong> The full path to the content from the web root.<br></li>
+</ul>
+
+<p><em>If neither slug or url is present, the filename will be used.</em></p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

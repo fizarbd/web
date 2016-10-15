@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hugo Template Functions</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo uses the excellent Go html/template library for its template engine.
+It is an extremely lightweight engine that provides a very small amount of
+logic. In our experience it is just the right amount of logic to be able
+to create a good static website.</p>
+
+<p>Go templates are lightweight but extensible. Hugo has added the following
+functions to the basic template logic.</p>
+
+<p>(Go itself supplies built-in functions, including comparison operators
+and other basic tools; these are listed in the
+<a href="http://golang.org/pkg/text/template/#hdr-Functions">Go template documentation</a>.)</p>
+
+<h2 id="general">General</h2>
+
+<h3 id="isset">isset</h3>
+
+<p>Return true if the parameter is set.
+Takes either a slice, array or channel and an index or a map and a key as input.</p>
+
+<p>e.g. {{ if isset .Params &ldquo;project_url&rdquo; }} {{ index .Params &ldquo;project_url&rdquo; }}{{ end }}</p>
+
+<h3 id="echoparam">echoParam</h3>
+
+<p>If parameter is set, then echo it.</p>
+
+<p>e.g. {{echoParam .Params &ldquo;project_url&rdquo; }}</p>
+
+<h3 id="eq">eq</h3>
+
+<p>Return true if the parameters are equal.</p>
+
+<p>e.g.
+    {{ if eq .Section &ldquo;blog&rdquo; }}current{{ end}}&rdquo;</p>
+
+<h3 id="first">first</h3>
+
+<p>Slices an array to only the first X elements.</p>
+
+<p>Works on <a href="http://fizarbd.github.io/web/templates/list/">lists</a>, <a href="http://fizarbd.github.io/web/taxonomies/displaying/">taxonomies</a>, <a href="http://fizarbd.github.io/web/templates/terms/">terms</a>, <a href="http://fizarbd.github.io/web/templates/list/">groups</a></p>
+
+<p>e.g.
+    {{ range first 10 .Data.Pages }}
+        {{ .Render &ldquo;summary&rdquo;}}
+    {{ end }}</p>
+
+<h3 id="where">where</h3>
+
+<p>Filters an array to only elements containing a matching value for a given field.</p>
+
+<p>Works on <a href="http://fizarbd.github.io/web/templates/list/">lists</a>, <a href="http://fizarbd.github.io/web/taxonomies/displaying/">taxonomies</a>, <a href="http://fizarbd.github.io/web/templates/terms/">terms</a>, <a href="http://fizarbd.github.io/web/templates/list/">groups</a></p>
+
+<p>e.g.</p>
+
+<pre><code>{{ range where .Data.Pages &quot;Section&quot; &quot;post&quot; }}
+   {{ .Content}}
+{{ end }}
+</code></pre>
+
+<p><em>where and first can be stacked</em></p>
+
+<p>e.g.</p>
+
+<pre><code>{{ range first 5 (where .Data.Pages &quot;Section&quot; &quot;post&quot;) }}
+   {{ .Content}}
+{{ end }}
+</code></pre>
+
+<h3 id="in">in</h3>
+
+<p>Checks if an element is in an array (or slice) and returns a boolean.  The elements supported are strings, integers and floats (only float64 will match as expected).  In addition, it can also check if a substring exists in a string.</p>
+
+<p>e.g.
+    {{ if in .Params.tags &ldquo;Git&rdquo; }}Follow me on GitHub!{{ end }}
+or
+    {{ if in &ldquo;this string contains a substring&rdquo; &ldquo;substring&rdquo; }}Substring found!{{ end }}</p>
+
+<h3 id="intersect">intersect</h3>
+
+<p>Given two arrays (or slices), this function will return the common elements in the arrays.  The elements supported are strings, integers and floats (only float64).</p>
+
+<p>A useful example of this functionality is a &lsquo;similar posts&rsquo; block.  Create a list of links to posts where any of the tags in the current post match any tags in other posts.</p>
+
+<p>e.g.
+    <ul>
+    {{ $page_link := .Permalink }}
+    {{ $tags := .Params.tags }}
+    {{ range .Site.Recent }}
+        {{ $page := . }}
+        {{ $has_common_tags := intersect $tags .Params.tags | len | lt 0 }}
+        {{ if and $has_common_tags (ne $page_link $page.Permalink) }}
+            <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+        {{ end }}
+    {{ end }}
+    </ul></p>
+
+<h2 id="math">Math</h2>
+
+<h3 id="add">add</h3>
+
+<p>Adds two integers.</p>
+
+<p>e.g. {{add 1 2}} → 3</p>
+
+<h3 id="sub">sub</h3>
+
+<p>Subtracts two integers.</p>
+
+<p>e.g. {{sub 3 2}} → 1</p>
+
+<h3 id="div">div</h3>
+
+<p>Divides two integers.</p>
+
+<p>e.g. {{div 6 3}} → 2</p>
+
+<h3 id="mul">mul</h3>
+
+<p>Multiplies two integers.</p>
+
+<p>e.g. {{mul 2 3}} → 6</p>
+
+<h3 id="mod">mod</h3>
+
+<p>Modulus of two integers.</p>
+
+<p>e.g. {{mod 15 3}} → 0</p>
+
+<h3 id="modbool">modBool</h3>
+
+<p>Boolean of modulus of two integers.
+true if modulus is 0.</p>
+
+<p>e.g. {{modBool 15 3}} → true</p>
+
+<h2 id="strings">Strings</h2>
+
+<h3 id="urlize">urlize</h3>
+
+<p>Takes a string and sanitizes it for usage in URLs, converts spaces to &ldquo;-&rdquo;.</p>
+
+<p>e.g. &lt;a href=&ldquo;/tags/{{ . | urlize }}&rdquo;&gt;{{ . }}&lt;/a&gt;</p>
+
+<h3 id="safehtml">safeHtml</h3>
+
+<p>Declares the provided string as &ldquo;safe&rdquo; so Go templates will not filter it.</p>
+
+<p>e.g. {{ .Params.CopyrightHTML | safeHtml }}</p>
+
+<h3 id="lower">lower</h3>
+
+<p>Convert all characters in string to lowercase.</p>
+
+<p>e.g. {{lower &ldquo;BatMan&rdquo;}} → &ldquo;batman&rdquo;</p>
+
+<h3 id="upper">upper</h3>
+
+<p>Convert all characters in string to uppercase.</p>
+
+<p>e.g. {{upper &ldquo;BatMan&rdquo;}} → &ldquo;BATMAN&rdquo;</p>
+
+<h3 id="title">title</h3>
+
+<p>Convert all characters in string to titlecase.</p>
+
+<p>e.g. {{title &ldquo;BatMan&rdquo;}} → &ldquo;Batman&rdquo;</p>
+
+<h3 id="highlight">highlight</h3>
+
+<p>Take a string of code and a language, uses Pygments to return the syntax
+highlighted code in HTML. Used in the <a href="http://fizarbd.github.io/web/extras/highlighting">highlight shortcode</a>.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

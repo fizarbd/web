@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Comments in Hugo</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>As Hugo is a static site generator, the content produced is static and
+doesn’t interact with the users. The most common interaction people ask
+for is comment capability.</p>
+
+<p>Hugo ships with support for <a href="http://disqus.com">Disqus</a>, a third-party
+service that provides comment and community capabilities to website via
+JavaScript.</p>
+
+<p>Your theme may already support Disqus, but even it if doesn’t, it is easy
+to add.</p>
+
+<h1 id="disqus-support">Disqus Support</h1>
+
+<h2 id="adding-disqus-to-a-template">Adding Disqus to a template</h2>
+
+<p>Hugo comes with all the code you would need to include load Disqus.
+Simply include the following line where you want your comments to appear:</p>
+
+<pre><code>{{ template &quot;_internal/disqus.html&quot; . }}
+</code></pre>
+
+<h2 id="configuring-disqus">Configuring Disqus</h2>
+
+<p>That template requires you to set a single value in your site config file, e.g. config.yaml.</p>
+
+<pre><code>disqusShortname = &quot;XYW&quot;
+</code></pre>
+
+<p>Additionally, you can optionally set the following in the front matter
+for a given piece of content:</p>
+
+<ul>
+<li><strong>disqus_identifier</strong></li>
+<li><strong>disqus_title</strong></li>
+<li><strong>disqus_url</strong></li>
+</ul>
+
+<h2 id="conditional-loading-of-disqus-comments">Conditional Loading of Disqus Comments</h2>
+
+<p>Users have noticed that enabling Disqus comments when running the Hugo web server on localhost causes the creation of unwanted discussions on the associated Disqus account. In order to prevent this, a slightly tweaked partial template is required. So, rather than using the built-in <code>&quot;_internal/disqus.html&quot;</code> template referenced above, create a template in your <code>partials</code> folder that looks like this:</p>
+
+<pre><code class="language-javascript">&lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+(function() {
+    // Don't ever inject Disqus on localhost--it creates unwanted
+    // discussions from 'localhost:1313' on your Disqus account...
+    if (window.location.hostname == &quot;localhost&quot;)
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = '{{ .Site.Params.disqusShortname }}';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;http://disqus.com/?ref_noscript&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;a href=&quot;http://disqus.com&quot; class=&quot;dsq-brlink&quot;&gt;comments powered by &lt;span class=&quot;logo-disqus&quot;&gt;Disqus&lt;/span&gt;&lt;/a&gt;
+</code></pre>
+
+<p>Notice that there is a simple <code>if</code> statement that detects when you are running on localhost and skips the initialization of the Disqus comment injection.</p>
+
+<p>Now, reference the partial template from your page template:</p>
+
+<pre><code>{{ partial &quot;disqus.html&quot; . }}
+</code></pre>
+
+<h1 id="alternatives">Alternatives</h1>
+
+<p>A few alternatives exist to <a href="http://disqus.com">Disqus</a>:</p>
+
+<ul>
+<li><a href="http://intensedebate.com/">Intense Debate</a></li>
+<li><a href="http://livefyre.com/">LiveFyre</a></li>
+<li><a href="http://muut.com">Moot</a></li>
+<li><a href="http://duoshuo.com/">多说</a> (<a href="http://duoshuo.com/">Duoshuo</a>, popular in China)</li>
+<li><a href="http://github.com/spf13/kaiju">Kaiju</a></li>
+</ul>
+
+<p><a href="http://github.com/spf13/kaiju">Kaiju</a> is an open-source project started
+by <a href="http://spf13.com">spf13</a> (Hugo’s author) to bring easy and fast real
+time discussions to the web.</p>
+
+<p>Written using Go, Socket.io and MongoDB, it is very fast and easy to
+deploy.</p>
+
+<p>It is in early development but shows promise. If you have interest,
+please help by contributing whether via a pull request, an issue or even
+just a tweet. Everything helps.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

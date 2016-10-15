@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meta-rsses on Waziup github platform test</title>
+    <link>http://fizarbd.github.io/web/meta/index.xml</link>
+    <description>Recent content in Meta-rsses on Waziup github platform test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 01 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://fizarbd.github.io/web/meta/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Release Notes</title>
+      <link>http://fizarbd.github.io/web/meta/release-notes/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/meta/release-notes/</guid>
+      <description>
+
+&lt;h2 id=&#34;0-12-0-sept-1-2014&#34;&gt;&lt;strong&gt;0.12.0&lt;/strong&gt; Sept 1, 2014&lt;/h2&gt;
+
+&lt;p&gt;A lot has happened since Hugo v0.11.0 was released. Most of the work has been
+focused on polishing the theme engine and adding critical functionality to the
+templates.&lt;/p&gt;
+
+&lt;p&gt;This release represents over 90 code commits from 28 different contributors.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;10 &lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;new themes&lt;/a&gt; created by the community&lt;/li&gt;
+&lt;li&gt;Fully themable &lt;a href=&#34;http://fizarbd.github.io/web/templates/partials&#34;&gt;Partials&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/templates/404/&#34;&gt;404 template&lt;/a&gt; support in themes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/shortcodes/&#34;&gt;Shortcode&lt;/a&gt; support in themes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/templates/views/&#34;&gt;Views&lt;/a&gt; support in themes&lt;/li&gt;
+&lt;li&gt;Inner &lt;a href=&#34;http://fizarbd.github.io/web/extras/shortcodes/&#34;&gt;shortcode&lt;/a&gt; content now treated as Markdown&lt;/li&gt;
+&lt;li&gt;Support for header ids in Markdown (# Header {#myid})&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/templates/list&#34;&gt;Where&lt;/a&gt; template function to filter lists of content, taxonomies, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/templates/list&#34;&gt;GroupBy&lt;/a&gt; &amp;amp; &lt;a href=&#34;http://fizarbd.github.io/web/templates/list&#34;&gt;GroupByDate&lt;/a&gt; methods to group pages&lt;/li&gt;
+&lt;li&gt;Taxonomy &lt;a href=&#34;http://fizarbd.github.io/web/taxonomies/methods/&#34;&gt;pages list&lt;/a&gt; now sortable, filterable, limitable &amp;amp; groupable&lt;/li&gt;
+&lt;li&gt;General cleanup to taxonomies &amp;amp; documentation to make it more clear and consistent&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/showcase/&#34;&gt;Showcase&lt;/a&gt; returned and has been expanded&lt;/li&gt;
+&lt;li&gt;Pretty links now always have trailing slashes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/overview/configuration/&#34;&gt;BaseUrl&lt;/a&gt; can now include a subdirectory&lt;/li&gt;
+&lt;li&gt;Better feedback about draft &amp;amp; future post rendering&lt;/li&gt;
+&lt;li&gt;A variety of improvements to &lt;a href=&#34;http://gohugo.io&#34;&gt;the website&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-11-0-may-28-2014&#34;&gt;&lt;strong&gt;0.11.0&lt;/strong&gt; May 28, 2014&lt;/h2&gt;
+
+&lt;p&gt;This release represents over 110 code commits from 29 different contributors.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Considerably faster&amp;hellip; about 3 - 4x faster on average&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/livereload&#34;&gt;Live Reload&lt;/a&gt;. Hugo will automatically reload the browser when the build is complete&lt;/li&gt;
+&lt;li&gt;Theme engine w/&lt;a href=&#34;http://github.com/spf13/hugoThemes&#34;&gt;Theme Repository&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/menus&#34;&gt;Menu system&lt;/a&gt; with support for active page&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/builders&#34;&gt;Builders&lt;/a&gt; to quickly create a new site, content or theme&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/templates/sitemap&#34;&gt;XML sitemap&lt;/a&gt; generation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/comments&#34;&gt;Integrated Disqus&lt;/a&gt; support&lt;/li&gt;
+&lt;li&gt;Streamlined &lt;a href=&#34;http://fizarbd.github.io/web/templates/overview&#34;&gt;template organization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gohugo.io&#34;&gt;Brand new docs site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Support for publishDate which allows for posts to be dated in the future&lt;/li&gt;
+&lt;li&gt;More &lt;a href=&#34;http://fizarbd.github.io/web/content/ordering&#34;&gt;sort&lt;/a&gt; options&lt;/li&gt;
+&lt;li&gt;Logging support&lt;/li&gt;
+&lt;li&gt;Much better error handling&lt;/li&gt;
+&lt;li&gt;More informative verbose output&lt;/li&gt;
+&lt;li&gt;Renamed Indexes &amp;gt; &lt;a href=&#34;http://fizarbd.github.io/web/taxonomies/overview&#34;&gt;Taxonomies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Renamed Chrome &amp;gt; &lt;a href=&#34;http://fizarbd.github.io/web/templates/partials&#34;&gt;Partials&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-10-0-march-1-2014&#34;&gt;&lt;strong&gt;0.10.0&lt;/strong&gt; March 1, 2014&lt;/h2&gt;
+
+&lt;p&gt;This release represents over 110 code commits from 29 different contributors.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/highlighting&#34;&gt;Syntax highlighting&lt;/a&gt; powered by pygments (&lt;strong&gt;slow&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Ability to &lt;a href=&#34;http://fizarbd.github.io/web/content/ordering&#34;&gt;sort content&lt;/a&gt; many more ways&lt;/li&gt;
+&lt;li&gt;Automatic &lt;a href=&#34;http://fizarbd.github.io/web/extras/toc&#34;&gt;table of contents&lt;/a&gt; generation&lt;/li&gt;
+&lt;li&gt;Support for unicode urls, aliases and indexes&lt;/li&gt;
+&lt;li&gt;Configurable per-section &lt;a href=&#34;http://fizarbd.github.io/web/extras/permalinks&#34;&gt;permalink&lt;/a&gt; pattern support&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href=&#34;http://fizarbd.github.io/web/extras/shortcodes&#34;&gt;paired shortcodes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Shipping with some &lt;a href=&#34;http://fizarbd.github.io/web/extras/shortcodes&#34;&gt;shortcodes&lt;/a&gt; (highlight &amp;amp; figure)&lt;/li&gt;
+&lt;li&gt;Adding &lt;a href=&#34;http://fizarbd.github.io/web/extras/urls&#34;&gt;canonify&lt;/a&gt; option to keep urls relative&lt;/li&gt;
+&lt;li&gt;A bunch of &lt;a href=&#34;http://fizarbd.github.io/web/layout/functions&#34;&gt;additional template functions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Watching very large sites now works on mac&lt;/li&gt;
+&lt;li&gt;RSS generation improved. Limited to 50 items by default, can limit further in &lt;a href=&#34;http://fizarbd.github.io/web/layout/rss&#34;&gt;template&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Boolean params now supported in &lt;a href=&#34;http://fizarbd.github.io/web/content/front-matter&#34;&gt;frontmatter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Launched website &lt;a href=&#34;http://fizarbd.github.io/web/showcase&#34;&gt;showcase&lt;/a&gt;. Show off your own hugo site!&lt;/li&gt;
+&lt;li&gt;A bunch of &lt;a href=&#34;https://github.com/spf13/hugo/commits/master&#34;&gt;bug fixes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-9-0-november-15-2013&#34;&gt;&lt;strong&gt;0.9.0&lt;/strong&gt; November 15, 2013&lt;/h2&gt;
+
+&lt;p&gt;This release represents over 220 code commits from 22 different contributors.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;New &lt;a href=&#34;http://fizarbd.github.io/web/overview/usage&#34;&gt;command based interface&lt;/a&gt; similar to git (hugo server -s ./ )&lt;/li&gt;
+&lt;li&gt;Amber template support&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/extras/aliases&#34;&gt;Aliases&lt;/a&gt; (redirects)&lt;/li&gt;
+&lt;li&gt;Support for top level pages (in addition to homepage)&lt;/li&gt;
+&lt;li&gt;Complete overhaul of the documentation site&lt;/li&gt;
+&lt;li&gt;Full Windows support&lt;/li&gt;
+&lt;li&gt;Better index support including &lt;a href=&#34;http://fizarbd.github.io/web/content/ordering&#34;&gt;ordering by content weight&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Add params to site config, available in .Site.Params from templates&lt;/li&gt;
+&lt;li&gt;Friendlier json support&lt;/li&gt;
+&lt;li&gt;Support for html &amp;amp; xml content (with frontmatter support)&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href=&#34;http://fizarbd.github.io/web/content/summaries&#34;&gt;summary&lt;/a&gt; content divider (&amp;lt;!–more–&amp;gt;)&lt;/li&gt;
+&lt;li&gt;HTML in &lt;a href=&#34;http://fizarbd.github.io/web/content/summaries&#34;&gt;summary&lt;/a&gt; (when using divider)&lt;/li&gt;
+&lt;li&gt;Added &lt;a href=&#34;http://fizarbd.github.io/web/layout/variables&#34;&gt;&amp;ldquo;Minutes to Read&amp;rdquo;&lt;/a&gt; functionality&lt;/li&gt;
+&lt;li&gt;Support for a custom 404 page&lt;/li&gt;
+&lt;li&gt;Cleanup of how content organization is handled&lt;/li&gt;
+&lt;li&gt;Loads of unit and performance tests&lt;/li&gt;
+&lt;li&gt;Integration with travis ci&lt;/li&gt;
+&lt;li&gt;Static directory now watched and copied on any addition or modification&lt;/li&gt;
+&lt;li&gt;Support for relative permalinks&lt;/li&gt;
+&lt;li&gt;Fixed watching being triggered multiple times for the same event&lt;/li&gt;
+&lt;li&gt;Watch now ignores temp files (as created by Vim)&lt;/li&gt;
+&lt;li&gt;Configurable number of posts on &lt;a href=&#34;http://fizarbd.github.io/web/layout/homepage/&#34;&gt;homepage&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fizarbd.github.io/web/content/front-matter&#34;&gt;Front matter&lt;/a&gt; supports multiple types (int, string, date, float)&lt;/li&gt;
+&lt;li&gt;Indexes can now use a default template&lt;/li&gt;
+&lt;li&gt;Addition of truncated bool to content to determine if should show &amp;lsquo;more&amp;rsquo; link&lt;/li&gt;
+&lt;li&gt;Support for &lt;a href=&#34;http://fizarbd.github.io/web/layout/variables&#34;&gt;linkTitles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Better handling of most errors with directions on how to resolve&lt;/li&gt;
+&lt;li&gt;Support for more date / time formats&lt;/li&gt;
+&lt;li&gt;Support for go 1.2&lt;/li&gt;
+&lt;li&gt;Support for &lt;code&gt;first&lt;/code&gt; in templates&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-8-0-august-2-2013&#34;&gt;&lt;strong&gt;0.8.0&lt;/strong&gt; August 2, 2013&lt;/h2&gt;
+
+&lt;p&gt;This release represents over 65 code commits from 6 different contributors.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Added support for pretty urls (filename/index.html vs filename.html)&lt;/li&gt;
+&lt;li&gt;Hugo supports a destination directory&lt;/li&gt;
+&lt;li&gt;Will efficiently sync content in static to destination directory&lt;/li&gt;
+&lt;li&gt;Cleaned up options.. now with support for short and long options&lt;/li&gt;
+&lt;li&gt;Added support for TOML&lt;/li&gt;
+&lt;li&gt;Added support for YAML&lt;/li&gt;
+&lt;li&gt;Added support for Previous &amp;amp; Next&lt;/li&gt;
+&lt;li&gt;Added support for indexes for the indexes&lt;/li&gt;
+&lt;li&gt;Better Windows compatibility&lt;/li&gt;
+&lt;li&gt;Support for series&lt;/li&gt;
+&lt;li&gt;Adding verbose output&lt;/li&gt;
+&lt;li&gt;Loads of bugfixes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-7-0-july-4-2013&#34;&gt;&lt;strong&gt;0.7.0&lt;/strong&gt; July 4, 2013&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hugo now includes a simple server&lt;/li&gt;
+&lt;li&gt;First public release&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-6-0-july-2-2013&#34;&gt;&lt;strong&gt;0.6.0&lt;/strong&gt; July 2, 2013&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hugo includes an example documentation site which it builds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;0-5-0-june-25-2013&#34;&gt;&lt;strong&gt;0.5.0&lt;/strong&gt; June 25, 2013&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Hugo is quite usable and able to build spf13.com&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hugo Roadmap</title>
+      <link>http://fizarbd.github.io/web/meta/roadmap/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/meta/roadmap/</guid>
+      <description>&lt;p&gt;In no particular order, here is what we are working on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Intelligently Related Posts&lt;/li&gt;
+&lt;li&gt;Even easier deployment to S3, SSH, GitHub, rsync&lt;/li&gt;
+&lt;li&gt;Import from other website systems (WordPress, Jekyll)&lt;/li&gt;
+&lt;li&gt;An interactive web based editor&lt;/li&gt;
+&lt;li&gt;Additional themes&lt;/li&gt;
+&lt;li&gt;Dynamic image resizing via shortcodes&lt;/li&gt;
+&lt;li&gt;Support for additional formats&lt;/li&gt;
+&lt;li&gt;Pagination&lt;/li&gt;
+&lt;li&gt;Your best ideas&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>http://fizarbd.github.io/web/meta/license/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/meta/license/</guid>
+      <description>
+
+&lt;p&gt;Hugo is released under the Simple Public License.&lt;/p&gt;
+
+&lt;h2 id=&#34;simple-public-license-simpl-2-0&#34;&gt;Simple Public License (SimPL-2.0)&lt;/h2&gt;
+
+&lt;h3 id=&#34;preamble&#34;&gt;Preamble&lt;/h3&gt;
+
+&lt;p&gt;This Simple Public License 2.0 (SimPL-2.0 for short) is a plain language
+implementation of GPL 2.0.  The words are different, but the goal is the
+same - to guarantee for all users the freedom to share and change
+software.  If anyone wonders about the meaning of the SimPL, they should
+interpret it as consistent with GPL 2.0.&lt;/p&gt;
+
+&lt;h2 id=&#34;simple-public-license-simpl-2-0-1&#34;&gt;Simple Public License (SimPL) 2.0&lt;/h2&gt;
+
+&lt;p&gt;The SimPL applies to the software&amp;rsquo;s source and object code and comes
+with any rights that I have in it (other than trademarks). You agree to
+the SimPL by copying, distributing, or making a derivative work of the
+software.&lt;/p&gt;
+
+&lt;p&gt;You get the royalty free right to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use the software for any purpose;&lt;/li&gt;
+&lt;li&gt;Make derivative works of it (this is called a &amp;ldquo;Derived Work&amp;rdquo;);&lt;/li&gt;
+&lt;li&gt;Copy and distribute it and any Derived Work.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you distribute the software or a Derived Work, you must give back to
+the community by:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Prominently noting the date of any changes you make;&lt;/li&gt;
+&lt;li&gt;Leaving other people&amp;rsquo;s copyright notices, warranty disclaimers, and
+license terms in place;&lt;/li&gt;
+&lt;li&gt;Providing the source code, build scripts, installation scripts, and
+interface definitions in a form that is easy to get and best to
+modify;&lt;/li&gt;
+&lt;li&gt;Licensing it to everyone under SimPL, or substantially similar terms
+(such as GPL 2.0), without adding further restrictions to the rights
+provided;&lt;/li&gt;
+&lt;li&gt;Conspicuously announcing that it is available under that license.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are some things that you must shoulder:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You get NO WARRANTIES. None of any kind;&lt;/li&gt;
+&lt;li&gt;If the software damages you in any way, you may only recover direct
+damages up to the amount you paid for it (that is zero if you did
+not pay anything). You may not recover any other damages, including
+those called &amp;ldquo;consequential damages.&amp;rdquo; (The state or country where
+you live may not allow you to limit your liability in this way, so
+this may not apply to you);&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The SimPL continues perpetually, except that your license rights end
+automatically if:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You do not abide by the &amp;ldquo;give back to the community&amp;rdquo; terms (your
+licensees get to keep their rights if they abide);&lt;/li&gt;
+&lt;li&gt;Anyone prevents you from distributing the software under the terms
+of the SimPL.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;license-for-the-license&#34;&gt;License for the License&lt;/h2&gt;
+
+&lt;p&gt;You may do anything that you want with the SimPL text; it&amp;rsquo;s a license
+form to use in any way that you find helpful.  To avoid confusion,
+however, if you change the terms in any way then you may not call your
+license the Simple Public License or the SimPL (but feel free to
+acknowledge that your license is &amp;ldquo;based on the Simple Public License&amp;rdquo;).&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

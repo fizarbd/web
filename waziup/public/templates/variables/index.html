@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Template Variables</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo makes a set of values available to the templates. Go templates are context based. The following
+are available in the context for the templates.</p>
+
+<h2 id="page-variables">Page Variables</h2>
+
+<p>The following is a list of most of the accessible variables which can be
+defined for a piece of content. Many of these will be defined in the front
+matter, content or derived from file location.</p>
+
+<p><strong>.Title</strong>  The title for the content.<br>
+<strong>.Content</strong> The content itself, defined below the front matter.<br>
+<strong>.Summary</strong> A generated summary of the content for easily showing a snippet in a summary view. Note that the breakpoint can be set manually by inserting <em>&#x3C;!&ndash;more&ndash;&#x3E;</em> at the appropriate place in the content page.<br>
+<strong>.Description</strong> The description for the content.<br>
+<strong>.Keywords</strong> The meta keywords for this content.<br>
+<strong>.Date</strong> The date the content is associated with.<br>
+<strong>.PublishDate</strong> The date the content is published on.<br>
+<strong>.Type</strong> The content <a href="http://fizarbd.github.io/web/content/types/">type</a> (e.g. post)<br>
+<strong>.Section</strong> The <a href="http://fizarbd.github.io/web/content/sections/">section</a> this content belongs to<br>
+<strong>.Permalink</strong> The Permanent link for this page.<br>
+<strong>.RelPermalink</strong> The Relative permanent link for this page.<br>
+<strong>.LinkTitle</strong> Access when creating links to this content. Will use linktitle if set in front-matter, else title<br>
+<strong>.Taxonomies</strong> These will use the field name of the plural form of the index (see tags and categories above)<br>
+<strong>.RSSLink</strong> Link to the indexes&rsquo; rss link <br>
+<strong>.TableOfContents</strong> The rendered table of contents for this content<br>
+<strong>.Prev</strong> Pointer to the previous content (based on pub date)<br>
+<strong>.Next</strong> Pointer to the following content (based on pub date)<br>
+<strong>.FuzzyWordCount</strong> The approximate number of words in the content.<br>
+<strong>.WordCount</strong> The number of words in the content.<br>
+<strong>.ReadingTime</strong> The estimated time it takes to read the content in minutes.<br>
+<strong>.Weight</strong> Assigned weight (in the front matter) to this content, used in sorting.<br>
+<strong>.IsNode</strong> Always false for pages.<br>
+<strong>.IsPage</strong> Always true for page.<br>
+<strong>.Site</strong> See site variables below<br></p>
+
+<h2 id="page-params">Page Params</h2>
+
+<p>Any other value defined in the front matter, including indexes will be made available under <code>.Params</code>.
+Take for example I&rsquo;m using tags and categories as my indexes. The following would be how I would access them:</p>
+
+<p><strong>.Params.tags</strong> <br>
+<strong>.Params.categories</strong> <br>
+<br>
+<strong>All Params are only accessible using all lowercase characters</strong><br></p>
+
+<h2 id="node-variables">Node Variables</h2>
+
+<p>In Hugo a node is any page not rendered directly by a content file. This
+includes indexes, lists and the homepage.</p>
+
+<p><strong>.Title</strong>  The title for the content.<br>
+<strong>.Date</strong> The date the content is published on.<br>
+<strong>.Permalink</strong> The Permanent link for this node<br>
+<strong>.Url</strong> The relative url for this node.<br>
+<strong>.RSSLink</strong> Link to the indexes&rsquo; rss link <br>
+<strong>.Data</strong> The data specific to this type of node.<br>
+<strong>.IsNode</strong> Always true for nodes.<br>
+<strong>.IsPage</strong> Always false for nodes.<br>
+<strong>.Site</strong> See site variables below<br></p>
+
+<h2 id="site-variables">Site Variables</h2>
+
+<p>Also available is <code>.Site</code> which has the following:</p>
+
+<p><strong>.Site.BaseUrl</strong> The base URL for the site as defined in the config.json file.<br>
+<strong>.Site.Taxonomies</strong> The indexes for the entire site.<br>
+<strong>.Site.LastChange</strong> The date of the last change of the most recent content.<br>
+<strong>.Site.Recent</strong> Array of all content ordered by Date, newest first.<br>
+<strong>.Site.Params</strong> A container holding the values from <code>params</code> in your site configuration file.<br></p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

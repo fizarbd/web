@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Using Taxonomies</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo makes a set of values and methods available on the various Taxonomy structures.</p>
+
+<h2 id="taxonomy-methods">Taxonomy Methods</h2>
+
+<p>A Taxonomy is a <code>map[string]WeightedPages</code>.</p>
+
+<p><strong>.Get(term)</strong> Returns the WeightedPages for a term. <br>
+<strong>.Count(term)</strong> The number of pieces of content assigned to this term.<br>
+<strong>.Alphabetical</strong> Returns an OrderedTaxonomy (slice) ordered by Term. <br>
+<strong>.ByCount</strong> Returns an OrderedTaxonomy (slice) ordered by number of entries. <br></p>
+
+<h2 id="orderedtaxonomy">OrderedTaxonomy</h2>
+
+<p>Since Maps are unordered, an OrderedTaxonomy is a special structure that has a defined order.</p>
+
+<pre><code>[]struct {
+    Name          string
+    WeightedPages WeightedPages
+}
+</code></pre>
+
+<p>Each element of the slice has:</p>
+
+<p><strong>.Term</strong>  The Term used.<br>
+<strong>.WeightedPages</strong>  A slice of Weighted Pages.<br>
+<strong>.Count</strong> The number of pieces of content assigned to this term.<br>
+<strong>.Pages</strong>  All Pages assigned to this term. All <a href="http://fizarbd.github.io/web/templates/list/">list methods</a> are available to this.<br></p>
+
+<h2 id="weightedpages">WeightedPages</h2>
+
+<p>WeightedPages is simply a slice of WeightedPage.</p>
+
+<pre><code>type WeightedPages []WeightedPage
+</code></pre>
+
+<p><strong>.Count(term)</strong> The number of pieces of content assigned to this term.<br>
+<strong>.Pages</strong> Returns a slice of pages, which then can be ordered using any of the <a href="http://fizarbd.github.io/web/templates/list/">list methods</a>. <br></p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

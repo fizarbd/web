@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Content Types</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo has full support for different types of content. A content type can have a
+unique set of meta data, template and can be automatically created by the new
+command through using content <a href="http://fizarbd.github.io/web/content/archetypes">archetypes</a>.</p>
+
+<p>A good example of when multiple types are needed is to look at <a href="https://www.tumblr.com/">Tumblr</a>. A piece
+of content could be a photo, quote or post, each with different meta data and
+rendered differently.</p>
+
+<h2 id="assigning-a-content-type">Assigning a content type</h2>
+
+<p>Hugo assumes that your site will be organized into <a href="http://fizarbd.github.io/web/content/sections">sections</a>
+and each section will use the corresponding type. If you are taking advantage of
+this, then each new piece of content you place into a section will automatically
+inherit the type.</p>
+
+<p>Alternatively you can set the type in the meta data under the key &ldquo;type&rdquo;.</p>
+
+<h2 id="creating-new-content-of-a-specific-type">Creating new content of a specific type</h2>
+
+<p>Hugo has the ability to create a new content file and populate the front matter
+with the data set corresponding to that type. Hugo does this by utilizing
+<a href="http://fizarbd.github.io/web/content/archetypes">archetypes</a>.</p>
+
+<p>To create a new piece of content, use:</p>
+
+<pre><code>hugo new relative/path/to/content.md
+</code></pre>
+
+<p>For example, if I wanted to create a new post inside the post section, I would type:</p>
+
+<pre><code>hugo new post/my-newest-post.md
+</code></pre>
+
+<h2 id="defining-a-content-type">Defining a content type</h2>
+
+<p>Creating a new content type is easy in Hugo. You simply provide the templates and archetype
+that the new type will use. You only need to define the templates, archetypes and/or views
+unique to that content type. Hugo will fall back to using the general templates and default archetype
+whenever a specific file is not present.</p>
+
+<p><em>Remember, all of the following are optional:</em></p>
+
+<h3 id="create-type-directory">Create Type Directory</h3>
+
+<p>Create a directory with the name of the type in layouts. Type is always singular.  <em>Eg /layouts/post</em>.</p>
+
+<h3 id="create-single-template">Create single template</h3>
+
+<p>Create a file called single.html inside your directory. <em>Eg /layouts/post/single.html</em>.</p>
+
+<h3 id="create-list-template">Create list template</h3>
+
+<p>Create a file called list.html inside your directory. <em>Eg /layouts/post/list.html</em>.</p>
+
+<h3 id="create-views">Create views</h3>
+
+<p>Many sites support rendering content in a few different ways, for
+instance a single page view and a summary view to be used when displaying a list
+of contents on a single page. Hugo makes no assumptions here about how you want
+to display your content, and will support as many different views of a content
+type as your site requires. All that is required for these additional views is
+that a template exists in each layout/type directory with the same name.</p>
+
+<h3 id="create-a-corresponding-archetype">Create a corresponding archetype</h3>
+
+<p>Create a file called <code>type</code>.md in the /archetypes directory <em>Eg /archetypes/post.md</em>.</p>
+
+<p>More details about archetypes can be found at the <a href="http://fizarbd.github.io/web/content/archetypes">archetypes docs</a></p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

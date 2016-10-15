@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Source Organization</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo takes a single directory and uses it as the input for creating a complete
+website.</p>
+
+<p>The top level of a source directory will typically have the following elements:</p>
+
+<pre><code>▸ archetypes/
+▸ content/
+▸ layouts/
+▸ static/
+▸ themes/
+  config.toml
+</code></pre>
+
+<p>Learn more about the different directories and what their purpose is:</p>
+
+<ul>
+<li><a href="http://fizarbd.github.io/web/overview/configuration">config</a></li>
+<li><a href="http://fizarbd.github.io/web/content/archetypes">archetypes</a></li>
+<li><a href="http://fizarbd.github.io/web/content/organization">content</a></li>
+<li><a href="http://fizarbd.github.io/web/layout/overview">layouts</a></li>
+<li><a href="http://fizarbd.github.io/web/themes/creation#toc_4">static</a></li>
+<li><a href="http://fizarbd.github.io/web/themes/overview">themes</a></li>
+</ul>
+
+<h2 id="example">Example</h2>
+
+<p>An example directory may look like:</p>
+
+<pre><code>.
+├── config.toml
+├── archetypes
+|   └── default.md
+├── content
+|   ├── post
+|   |   ├── firstpost.md
+|   |   └── secondpost.md
+|   └── quote
+|   |   ├── first.md
+|   |   └── second.md
+├── layouts
+|   ├── _default
+|   |   ├── single.html
+|   |   └── list.html
+|   ├── partials
+|   |   ├── header.html
+|   |   └── footer.html
+|   ├── taxonomies
+|   |   ├── category.html
+|   |   ├── post.html
+|   |   ├── quote.html
+|   |   └── tag.html
+|   ├── post
+|   |   ├── li.html
+|   |   ├── single.html
+|   |   └── summary.html
+|   ├── quote
+|   |   ├── li.html
+|   |   ├── single.html
+|   |   └── summary.html
+|   ├── shortcodes
+|   |   ├── img.html
+|   |   ├── vimeo.html
+|   |   └── youtube.html
+|   ├── index.html
+|   └── sitemap.xml
+├── themes
+|   ├── hyde
+|   └── doc
+└── static
+    ├── css
+    └── js
+</code></pre>
+
+<p>This directory structure tells us a lot about this site:</p>
+
+<ol>
+<li>The website intends to have two different types of content: posts and quotes.</li>
+<li>It will also apply two different indexes to that content: categories and tags.</li>
+<li>It will be displaying content in 3 different views: a list, a summary and a full page view.</li>
+</ol>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

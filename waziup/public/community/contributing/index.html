@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Contributing to Hugo</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>All contributions to Hugo are welcome. Whether you want to scratch an itch, or simply contribute to the project, feel free to pick something from the roadmap
+or contact <a href="http://spf13.com">spf13</a> about what may make sense
+to do next.</p>
+
+<p>You should fork the project and make your changes.  <em>We encourage pull requests to discuss code changes.</em></p>
+
+<p>When you&rsquo;re ready to create a pull request, be sure to:</p>
+
+<ul>
+<li>Have test cases for the new code.  If you have questions about how to do it, please ask in your pull request.</li>
+<li>Run <code>go fmt</code></li>
+<li>Squash your commits into a single commit.  <code>git rebase -i</code>.  It&rsquo;s okay to force update your pull request.</li>
+<li>Make sure <code>go test ./...</code> passes, and <code>go build</code> completes.  Our Travis CI loop will catch most things that are missing.  The exception: Windows.  We run on Windows from time to time, but if you have access, please check on a Windows machine too.</li>
+</ul>
+
+<h2 id="contribution-overview">Contribution Overview</h2>
+
+<ol>
+<li>Fork Hugo from <a href="https://github.com/spf13/hugo">https://github.com/spf13/hugo</a></li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Commit passing tests to validate changes.</li>
+<li>Run <code>go fmt</code></li>
+<li>Squash commits into a single (or logically grouped) commits (<code>git rebase -i</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+
+<h1 id="building-from-source">Building from source</h1>
+
+<h2 id="clone-locally-for-contributors">Clone locally (for contributors):</h2>
+
+<pre><code>git clone https://github.com/spf13/hugo
+cd hugo
+go get
+</code></pre>
+
+<p>Because Go expects all of your libraries to be found in either
+$GOROOT or $GOPATH, it&rsquo;s helpful to symlink the project to one
+of the following paths:</p>
+
+<ul>
+<li>ln -s /path/to/your/hugo $GOPATH/src/github.com/spf13/hugo</li>
+<li>ln -s /path/to/your/hugo $GOROOT/src/pkg/github.com/spf13/hugo</li>
+</ul>
+
+<h2 id="running-hugo">Running Hugo</h2>
+
+<pre><code>cd /path/to/hugo
+go install github.com/spf13/hugo/hugo
+go run main.go
+</code></pre>
+
+<h2 id="building-hugo">Building Hugo</h2>
+
+<pre><code>cd /path/to/hugo
+go build -o hugo main.go
+mv hugo /usr/local/bin/
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

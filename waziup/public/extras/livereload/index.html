@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Live Reload</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo may not be the first static site generator to utilize live reload
+technology, but it’s the first to do it right.</p>
+
+<p>The combination of Hugo’s insane build speed and live reload make
+crafting your content pure joy. Virtually instantly after you hit save
+your rebuilt content will appear in your browser.</p>
+
+<h2 id="using-livereload">Using livereload</h2>
+
+<p>Hugo comes with livereload built in. There are no additional packages to
+install. A common way to use hugo while developing a site is to have
+hugo run a server and watch for changes.</p>
+
+<pre><code>hugo server --watch
+</code></pre>
+
+<p>This will run a full functioning web server while simultaneously
+watching your file system for additions, deletions or changes within
+your:</p>
+
+<ul>
+<li>static files</li>
+<li>content</li>
+<li>layouts</li>
+<li>current theme</li>
+</ul>
+
+<p>Whenever anything changes Hugo will rebuild the site, continue to serve
+the content and as soon as the build is finished it will tell the
+browser and silently reload the page. Because most hugo builds are so
+fast they are barely noticeable, you merely need to glance at your open
+browser and you will see the change already there.</p>
+
+<p>This means that keeping the site open on a second monitor (or another
+half of your current monitor), allows you to see exactly what your
+content looks like without even leaving your text editor.</p>
+
+<h2 id="disabling-livereload">Disabling livereload</h2>
+
+<p>Live reload accomplishes this by injecting javascript into the pages it
+creates that creates a web socket client to the hugo web socket server.</p>
+
+<p>Awesome for development, but not something you would want to do in
+production. Since many people use <code>hugo server --watch</code> in production to
+instantly display any updated content, we’ve made it easy to disable the
+live reload functionality.</p>
+
+<pre><code>hugo server --watch --disableLiveReload
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

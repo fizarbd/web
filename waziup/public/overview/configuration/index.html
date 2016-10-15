@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Configuring Hugo</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>The directory structure and templates provide the majority of the
+configuration for a site. In fact, a config file isn&rsquo;t even needed for many
+websites since the defaults follow commonly used patterns.</p>
+
+<p>Hugo expects to find the config file in the root of the source directory and
+will look there first for a <code>config.toml</code> file. If none is present, it will
+then look for a <code>config.yaml</code> file, followed by a <code>config.json</code> file.</p>
+
+<p>The config file is a site-wide config. The config file provides directions to
+hugo on how to build the site as well as site-wide parameters and menus.</p>
+
+<h2 id="examples">Examples</h2>
+
+<p>The following is an example of a typical yaml config file:</p>
+
+<pre><code>---
+baseurl: &quot;http://yoursite.example.com/&quot;
+...
+</code></pre>
+
+<p>The following is an example of a toml config file with some of the default values:</p>
+
+<pre><code>contentdir = &quot;content&quot;
+layoutdir = &quot;layouts&quot;
+publishdir = &quot;public&quot;
+builddrafts = false
+baseurl = &quot;http://yoursite.example.com/&quot;
+canonifyurls = true
+
+[indexes]
+   category = &quot;categories&quot;
+   tag = &quot;tags&quot;
+</code></pre>
+
+<p>Here is a yaml configuration file which sets a few more options</p>
+
+<pre><code>---
+baseurl: &quot;http://yoursite.example.com/&quot;
+title: &quot;Yoyodyne Widget Blogging&quot;
+footnotereturnlinkcontents: &quot;↩&quot;
+permalinks:
+  post: /:year/:month/:title/
+params:
+  Subtitle: &quot;Spinning the cogs in the widgets&quot;
+  AuthorName: &quot;John Doe&quot;
+  GitHubUser: &quot;spf13&quot;
+  ListOfFoo:
+    - &quot;foo1&quot;
+    - &quot;foo2&quot;
+  SidebarRecentLimit: 5
+...
+</code></pre>
+
+<h2 id="notes">Notes</h2>
+
+<p>Config changes do not reflect with <a href="http://fizarbd.github.io/web/extras/livereload">Live Reload</a>.</p>
+
+<p>Please restart <code>hugo server --watch</code> whenever you make a config change.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

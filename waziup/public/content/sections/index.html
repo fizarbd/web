@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sections</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo thinks that you organize your content with a purpose. The same structure
+that works to organize your source content is used to organize the rendered
+site (see <a href="http://fizarbd.github.io/web/content/organization">Organization</a>). Following this pattern Hugo
+uses the top level of your content organization as <strong>the Section</strong>.</p>
+
+<p>The following example site uses two sections, &ldquo;post&rdquo; and &ldquo;quote&rdquo;.</p>
+
+<pre><code>.
+└── content
+    ├── post
+    |   ├── firstpost.md       // &lt;- http://1.com/post/firstpost/
+    |   ├── happy
+    |   |   └── ness.md   // &lt;- http://1.com/post/happy/ness/
+    |   └── secondpost.md      // &lt;- http://1.com/post/secondpost/
+    └── quote
+        ├── first.md           // &lt;- http://1.com/quote/first/
+        └── second.md          // &lt;- http://1.com/quote/second/
+</code></pre>
+
+<h2 id="section-lists">Section Lists</h2>
+
+<p>Hugo will automatically create pages for each section root that list all
+of the content in that section. See <a href="http://fizarbd.github.io/web/templates/list">List Templates</a>
+for details on customizing the way they appear.</p>
+
+<h2 id="sections-and-types">Sections and Types</h2>
+
+<p>By default everything created within a section will use the content type
+that matches the section name.</p>
+
+<p>Section defined in the front matter have the same impact.</p>
+
+<p>To change the type of a given piece of content, simply define the type
+in the front matter.</p>
+
+<p>If a layout for a given type hasn&rsquo;t been provided, a default type template will
+be used instead provided it exists.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

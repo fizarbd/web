@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Permalinks</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+<p>By default, content is laid out into the target <code>publishdir</code> (public)
+namespace matching its layout within the <code>contentdir</code> hierarchy.
+The <code>permalinks</code> site configuration option allows you to adjust this on a
+per-section basis.
+This will change where the files are written to and will change the page&rsquo;s
+internal &ldquo;canonical&rdquo; location, such that template references to
+<code>.RelPermalink</code> will honour the adjustments made as a result of the mappings
+in this option.</p>
+
+<p>For instance, if one of your sections is called <code>post</code>, and you want to adjust
+the canonical path to be hierarchical based on the year and month, then you
+might use:</p>
+
+<pre><code class="language-yaml">permalinks:
+  post: /:year/:month/:title/
+</code></pre>
+
+<p>Only the content under <code>post/</code> will be so rewritten.
+A file named <code>content/post/sample-entry</code> which contains a line
+<code>date: 2013-11-18T19:20:00-05:00</code> might end up with the rendered page
+appearing at <code>public/2013/11/sample-entry/index.html</code> and be reachable via
+the URL <a href="http://yoursite.example.com/2013/11/sample-entry/">http://yoursite.example.com/2013/11/sample-entry/</a>.</p>
+
+<p>The following is a list of values that can be used in a permalink definition.
+All references to time are dependent on the content&rsquo;s date.</p>
+
+<ul>
+<li><strong>:year</strong> the 4-digit year</li>
+<li><strong>:month</strong> the 2-digit month</li>
+<li><strong>:monthname</strong> the name of the month</li>
+<li><strong>:day</strong> the 2-digit day</li>
+<li><strong>:weekday</strong> the 1-digit day of the week (Sunday = 0)</li>
+<li><strong>:weekdayname</strong> the name of the day of the week</li>
+<li><strong>:yearday</strong> the 1- to 3-digit day of the year</li>
+<li><strong>:section</strong> the content&rsquo;s section</li>
+<li><strong>:title</strong> the content&rsquo;s title</li>
+<li><strong>:slug</strong> the content&rsquo;s slug (or title if no slug)</li>
+<li><strong>:filename</strong> the content&rsquo;s filename (without extension)</li>
+</ul>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

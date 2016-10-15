@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mailing List</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<h1 id="discussion-forum">Discussion Forum</h1>
+
+<p>Hugo has its own <a href="http://discuss.gohugo.io">discussion forum</a> powered by <a href="http://www.discourse.org/">Discourse</a>.</p>
+
+<p>Please use this for all discussions, questions, etc.</p>
+
+<h1 id="mailing-list">Mailing List</h1>
+
+<p>Hugo has two mailing lists:</p>
+
+<h2 id="announcements">Announcements</h2>
+
+<p>Very low traffic. Only releases will be emailed here.</p>
+
+<p><a href="https://groups.google.com/forum/#!forum/hugo-announce">https://groups.google.com/forum/#!forum/hugo-announce</a></p>
+
+<h2 id="discussion-archive">Discussion (Archive)</h2>
+
+<p><strong>This has been replaced with the <a href="http://discuss.gohugo.io">Hugo discussion forum</a>.</strong></p>
+
+<p>It is available for archival purposes.</p>
+
+<p><a href="https://groups.google.com/forum/#!forum/hugo-discuss">https://groups.google.com/forum/#!forum/hugo-discuss</a></p>
+
+<h1 id="other-resources">Other Resources</h1>
+
+<h2 id="gonuts">GoNuts</h2>
+
+<p>For general Go questions or discussion please refer to the Go mailing list.</p>
+
+<p><a href="https://groups.google.com/forum/#!forum/golang-nuts">https://groups.google.com/forum/#!forum/golang-nuts</a></p>
+
+<h2 id="github-issues">GitHub Issues</h2>
+
+<p><a href="https://github.com/spf13/hugo/issues">https://github.com/spf13/hugo/issues</a></p>
+
+<h2 id="twitter">Twitter</h2>
+
+<p>Hugo doesn&rsquo;t have its own Twitter handle, but feel free to tweet <a href="http://twitter.com/spf13">@spf13</a>.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

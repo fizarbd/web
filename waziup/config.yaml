@@ -1,0 +1,11 @@
+---
+contentdir: "content"
+layoutdir: "layouts"
+publishdir: "public"
+indexes:
+  category: "categories"
+baseurl: "http://fizarbd.github.io/web"
+title: "Waziup github platform test"
+canonifyurls: true
+theme: "hugo-base-theme"
+...

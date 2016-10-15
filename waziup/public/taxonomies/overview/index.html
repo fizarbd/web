@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Taxonomy Overview</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo includes support for user defined groupings of content called
+taxonomies. Taxonomies give us a way to classify our content so we can
+demonstrate relationships in a variety of logical ways.</p>
+
+<p>The default taxonomies for Hugo are tags and categories. These
+taxonomies are common to many website systems (WordPress, Drupal,
+Jekyll). Unlike all of those systems, Hugo makes it trivial to customize
+the taxonomies you will be using for your site however you wish. Another
+good use for taxonomies is to group a set of posts into a series. Other
+common uses would include categories, tags, groups, series and many
+more.</p>
+
+<p>When taxonomies are used (and templates are provided), Hugo will
+automatically create pages listing all of the taxonomies, their terms
+and all of the content attached to those terms.</p>
+
+<h2 id="definitions">Definitions</h2>
+
+<p><strong>Taxonomy:</strong> A categorization that can be used to classify content</p>
+
+<p><strong>Term:</strong> A key within that taxonomy</p>
+
+<p><strong>Value:</strong> A piece of content assigned to that Term</p>
+
+<h2 id="example">Example</h2>
+
+<p>For example, if I was writing about movies, I may want the following
+taxonomies:</p>
+
+<ul>
+<li>Actors</li>
+<li>Directors</li>
+<li>Studios</li>
+<li>Genre</li>
+<li>Year</li>
+<li>Awards</li>
+</ul>
+
+<p>I would then specify in each movie’s front-matter the specific terms for
+each of those taxonomies. Hugo would then automatically create pages for
+each Actor, Director, Studio, Genre, Year and Award listing all of the
+Movies that matched that specific Actor, Director, etc.</p>
+
+<h3 id="taxonomy-organization">Taxonomy Organization</h3>
+
+<p>Let’s use an example to demonstrate the different labels in action.
+From the perspective of the taxonomy, it could be visualized as:</p>
+
+<pre><code>Actor                    &lt;- Taxonomy
+    Bruce Willis         &lt;- Term
+        The Six Sense    &lt;- Content
+        Unbreakable      &lt;- Content
+        Moonrise Kingdom &lt;- Content
+    Samuel L. Jackson    &lt;- Term
+        Unbreakable      &lt;- Content
+        The Avengers     &lt;- Content
+        xXx              &lt;- Content
+</code></pre>
+
+<p>From the perspective of the content, it would appear differently, though
+the data and labels used are the same:</p>
+
+<pre><code>Unbreakable                 &lt;- Content
+    Actors                  &lt;- Taxonomy
+        Bruce Willis        &lt;- Term
+        Samuel L. Jackson   &lt;- Term
+    Director                &lt;- Taxonomy
+        M. Night Shyamalan  &lt;- Term
+    ...
+Moonrise Kingdom            &lt;- Content
+    Actors                  &lt;- Taxonomy
+        Bruce Willis        &lt;- Term
+        Bill Murray         &lt;- Term
+    Director                &lt;- Taxonomy
+        Wes Anderson        &lt;- Term
+    ...
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

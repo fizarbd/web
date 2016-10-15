@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hugo Templates</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo uses the excellent Go html/template library for its template engine.
+It is an extremely lightweight engine that provides a very small amount of
+logic. In our experience it is just the right amount of logic to be able
+to create a good static website.</p>
+
+<p>While Hugo has a number of different template roles, most complete
+websites can be built using just a small number of template files.
+Please don’t be afraid of the variety of different template roles. They
+enable Hugo to build very complicated sites. Most sites will only
+need to create a <a href="http://fizarbd.github.io/web/templates/content">/layouts/_default/single.html</a> &amp; <a href="http://fizarbd.github.io/web/templates/list">/layouts/_default/list.html</a></p>
+
+<p>If you are new to Go&rsquo;s templates, the <a href="http://fizarbd.github.io/web/layout/go-templates">Go Template Primer</a>
+is a great place to start.</p>
+
+<p>If you are familiar with Go’s templates, Hugo provides some <a href="http://fizarbd.github.io/web/templates/functions">additional
+template functions</a> and <a href="http://fizarbd.github.io/web/templates/variables">variables</a> you will want to be familiar
+with.</p>
+
+<h2 id="primary-template-roles">Primary Template roles</h2>
+
+<p>There are 3 primary kinds of templates that Hugo works with.</p>
+
+<h3 id="single-templates-content"><a href="http://fizarbd.github.io/web/templates/content">Single</a></h3>
+
+<p>Render a single piece of content</p>
+
+<h3 id="list-templates-list"><a href="http://fizarbd.github.io/web/templates/list">List</a></h3>
+
+<p>Page that list multiple pieces of content</p>
+
+<h3 id="homepage-templates-homepage"><a href="http://fizarbd.github.io/web/templates/homepage/">Homepage</a></h3>
+
+<p>The homepage of your site</p>
+
+<h2 id="supporting-template-roles-optional">Supporting Template Roles (optional)</h2>
+
+<p>Hugo also has additional kinds of templates all of which are optional</p>
+
+<h3 id="partial-templates-templates-partials"><a href="http://fizarbd.github.io/web/templates/partials">Partial Templates</a></h3>
+
+<p>Common page parts to be included in the above mentioned templates</p>
+
+<h3 id="content-views-templates-views"><a href="http://fizarbd.github.io/web/templates/views">Content Views</a></h3>
+
+<p>Different ways of rendering a (single) content type</p>
+
+<h3 id="taxonomy-terms-templates-terms"><a href="http://fizarbd.github.io/web/templates/terms">Taxonomy Terms</a></h3>
+
+<p>A list of the terms used for a specific taxonomy, e.g. a Tag cloud</p>
+
+<h2 id="other-templates-generally-unnecessary">Other Templates (generally unnecessary)</h2>
+
+<h3 id="rss-templates-rss"><a href="http://fizarbd.github.io/web/templates/rss/">RSS</a></h3>
+
+<p>Used to render all rss documents</p>
+
+<h3 id="sitemap-templates-sitemap"><a href="http://fizarbd.github.io/web/templates/sitemap/">Sitemap</a></h3>
+
+<p>Used to render the XML sitemap</p>
+
+<h3 id="404-templates-404"><a href="http://fizarbd.github.io/web/templates/404">404</a></h3>
+
+<p>This template will create a 404.html page used when hosting on GitHub Pages</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

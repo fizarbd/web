@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Using Taxonomies</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<h2 id="defining-taxonomies-for-a-site">Defining taxonomies for a site</h2>
+
+<p>Taxonomies must be defined in the site configuration before they can be
+used throughout the site. You need to provide both the plural and
+singular labels for each taxonomy.</p>
+
+<p>Here is an example configuration in YAML that specifies three taxonomies
+(the default two, plus <code>series</code>).</p>
+
+<p>Notice the format is <strong>singular key</strong> : <em>plural value</em>.</p>
+
+<h3 id="config-yaml">config.yaml</h3>
+
+<pre><code>---
+Taxonomies:
+    tag: &quot;tags&quot;
+    category: &quot;categories&quot;
+    series: &quot;series&quot;
+---
+</code></pre>
+
+<h2 id="assigning-taxonomy-values-to-content">Assigning taxonomy values to content</h2>
+
+<p>Once an taxonomy is defined at the site level, any piece of content
+can be assigned to it regardless of content type or section.</p>
+
+<p>Assigning content to an taxonomy is done in the front matter.
+Simply create a variable with the <em>plural</em> name of the taxonomy
+and assign all terms you want to apply to this content.</p>
+
+<p><strong>taxonomy values are case insensitive</strong></p>
+
+<h3 id="front-matter-example-in-toml">Front Matter Example (in TOML)</h3>
+
+<pre><code>+++
+title = &quot;Hugo: A fast and flexible static site generator&quot;
+tags = [ &quot;Development&quot;, &quot;Go&quot;, &quot;fast&quot;, &quot;Blogging&quot; ]
+categories = [ &quot;Development&quot; ]
+series = [ &quot;Go Web Dev&quot; ]
+slug = &quot;hugo&quot;
+project_url = &quot;http://github.com/spf13/hugo&quot;
++++
+</code></pre>
+
+<h3 id="front-matter-example-in-json">Front Matter Example (in JSON)</h3>
+
+<pre><code>{
+    &quot;title&quot;: &quot;Hugo: A fast and flexible static site generator&quot;,
+    &quot;tags&quot;: [
+        &quot;Development&quot;,
+        &quot;Go&quot;,
+        &quot;fast&quot;,
+        &quot;Blogging&quot;
+    ],
+    &quot;categories&quot; : [
+        &quot;Development&quot;
+    ],
+    &quot;series&quot; : [
+        &quot;Go Web Dev&quot;
+    ],
+    &quot;slug&quot;: &quot;hugo&quot;,
+    &quot;project_url&quot;: &quot;http://github.com/spf13/hugo&quot;
+}
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

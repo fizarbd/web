@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Taxonomy Terms Template</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>A unique template is needed to create a list of the terms for a given
+taxonomy. This is different from the <a href="http://fizarbd.github.io/web/templates/list/">list template</a>
+as that template is a list of content, where this is a list of meta data.</p>
+
+<h2 id="which-template-will-be-rendered">Which Template will be rendered?</h2>
+
+<p>Hugo uses a set of rules to figure out which template to use when
+rendering a specific page.</p>
+
+<p>Hugo will use the following prioritized list. If a file isn’t present,
+then the next one in the list will be used. This enables you to craft
+specific layouts when you want to without creating more templates
+than necessary. For most sites only the _default file at the end of
+the list will be needed.</p>
+
+<p>A Taxonomy Terms List will be rendered at /<code>PLURAL</code>/</p>
+
+<ul>
+<li>/layouts/taxonomy/<code>SINGLE</code>.terms.html</li>
+<li>/layouts/_default/terms.html</li>
+</ul>
+
+<p>If that neither file is found in either the /layouts or /theme/layouts
+directory than hugo will not render the taxonomy terms pages. It is also
+common for people to render taxonomy terms lists on other pages such as
+the homepage or the sidebar (such as a tag cloud) and not have a
+dedicated page for the terms.</p>
+
+<h2 id="variables">Variables</h2>
+
+<p>Taxonomy Terms pages are of the type &ldquo;node&rdquo; and have all the <a href="http://fizarbd.github.io/web/templates/variables/">node
+variables</a> and <a href="http://fizarbd.github.io/web/templates/variables/">site
+variables</a> available to use in the templates.</p>
+
+<p>Taxonomy Terms pages will additionally have:</p>
+
+<ul>
+<li><strong>.Data.Singular</strong> The singular name of the taxonomy</li>
+<li><strong>.Data.Plural</strong> The plural name of the taxonomy</li>
+<li><strong>.Data.Terms</strong> The taxonomy itself</li>
+<li><strong>.Data.Terms.Alphabetical</strong> The Terms alphabetized</li>
+<li><strong>.Data.Terms.ByCount</strong> The Terms ordered by popularity</li>
+</ul>
+
+<h2 id="example-terms-html-file">Example terms.html file</h2>
+
+<p>List pages are of the type &ldquo;node&rdquo; and have all the <a href="http://fizarbd.github.io/web/templates/variables/">node
+variables</a> and <a href="http://fizarbd.github.io/web/templates/variables/">site
+variables</a> available to use in the templates.</p>
+
+<p>This content template is used for <a href="http://spf13.com">spf13.com</a>.
+It makes use of <a href="http://fizarbd.github.io/web/templates/partials">partial templates</a>. The list of indexes
+templates cannot use a <a href="http://fizarbd.github.io/web/templates/views">content view</a> as they don&rsquo;t display the content, but
+rather information about the content.</p>
+
+<p>This particular template lists all of the Tags used on
+<a href="http://spf13.com">spf13.com</a> and provides a count for the number of pieces of
+content tagged with each tag.</p>
+
+<p><code>.Data.Terms</code> is an map of terms ⇒ [contents]</p>
+
+<pre><code>{{ partial &quot;header.html&quot; . }}
+{{ partial &quot;subheader.html&quot; . }}
+
+&lt;section id=&quot;main&quot;&gt;
+  &lt;div&gt;
+   &lt;h1 id=&quot;title&quot;&gt;{{ .Title }}&lt;/h1&gt;
+
+   &lt;ul&gt;
+   {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms }}
+    &lt;li&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $key | urlize }}&quot;&gt; {{ $key }} &lt;/a&gt; {{ len $value }} &lt;/li&gt;
+    {{ end }}
+   &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+{{ partial &quot;footer.html&quot; }}
+</code></pre>
+
+<p>Another example listing the content for each term (ordered by Date)</p>
+
+<pre><code>{{ partial &quot;header.html&quot; . }}
+{{ partial &quot;subheader.html&quot; . }}
+
+&lt;section id=&quot;main&quot;&gt;
+  &lt;div&gt;
+   &lt;h1 id=&quot;title&quot;&gt;{{ .Title }}&lt;/h1&gt;
+
+    {{ $data := .Data }}
+    {{ range $key,$value := .Data.Terms.ByCount }}
+    &lt;h2&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $value.Name | urlize }}&quot;&gt; {{ $value.Name }} &lt;/a&gt; {{ $value.Count }} &lt;/h2&gt;
+    &lt;ul&gt;
+        {{ range $value.Pages.ByDate }}
+        &lt;li&gt;
+            &lt;a href=&quot;{{ .Permalink }}&quot;&gt;{{ .Title }}&lt;/a&gt;
+        &lt;/li&gt;
+        {{ end }}
+    &lt;/ul&gt;
+    {{ end }}
+  &lt;/div&gt;
+&lt;/section&gt;
+
+{{ partial &quot;footer.html&quot; }}
+</code></pre>
+
+<h2 id="ordering">Ordering</h2>
+
+<p>Hugo can order the meta data in two different ways. It can be ordered by the
+number of content assigned to that key or alphabetically.</p>
+
+<h2 id="example-indexes-html-file-alphabetical">Example indexes.html file (alphabetical)</h2>
+
+<pre><code>{{ partial &quot;header.html&quot; . }}
+{{ partial &quot;subheader.html&quot; . }}
+
+&lt;section id=&quot;main&quot;&gt;
+  &lt;div&gt;
+   &lt;h1 id=&quot;title&quot;&gt;{{ .Title }}&lt;/h1&gt;
+   &lt;ul&gt;
+   {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms.Alphabetical }}
+    &lt;li&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $value.Name | urlize }}&quot;&gt; {{ $value.Name }} &lt;/a&gt; {{ $value.Count }} &lt;/li&gt;
+    {{ end }}
+   &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+{{ partial &quot;footer.html&quot; }}
+</code></pre>
+
+<h2 id="example-indexes-html-file-ordered">Example indexes.html file (ordered)</h2>
+
+<pre><code>{{ partial &quot;header.html&quot; . }}
+{{ partial &quot;subheader.html&quot; . }}
+
+&lt;section id=&quot;main&quot;&gt;
+  &lt;div&gt;
+   &lt;h1 id=&quot;title&quot;&gt;{{ .Title }}&lt;/h1&gt;
+   &lt;ul&gt;
+   {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms.ByCount }}
+    &lt;li&gt;&lt;a href=&quot;{{ $data.Plural }}/{{ $value.Name | urlize }}&quot;&gt; {{ $value.Name }} &lt;/a&gt; {{ $value.Count }} &lt;/li&gt;
+    {{ end }}
+   &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+{{ partial &quot;footer.html&quot; }}
+</code></pre>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

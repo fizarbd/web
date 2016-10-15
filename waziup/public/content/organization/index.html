@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Content Organization</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo uses markdown files with headers commonly called the front matter. Hugo
+respects the organization that you provide for your content to minimize any
+extra configuration, though this can be overridden by additional configuration
+in the front matter.</p>
+
+<h2 id="organization">Organization</h2>
+
+<p>In Hugo the content should be arranged in the same way they are intended for
+the rendered website. Without any additional configuration the following will
+just work. Hugo supports content nested at any level. The top level is special
+in Hugo and is used as the <a href="http://fizarbd.github.io/web/content/sections">section</a>.</p>
+
+<pre><code>.
+└── content
+    ├── post
+    |   ├── firstpost.md   // &lt;- http://1.com/post/firstpost/
+    |   ├── happy
+    |   |   └── ness.md    // &lt;- http://1.com/post/happy/ness/
+    |   └── secondpost.md  // &lt;- http://1.com/post/secondpost/
+    └── quote
+        ├── first.md       // &lt;- http://1.com/quote/first/
+        └── second.md      // &lt;- http://1.com/quote/second/
+</code></pre>
+
+<p><strong>Here&rsquo;s the same organization run with hugo --uglyurls</strong></p>
+
+<pre><code>.
+└── content
+    ├── post
+    |   ├── firstpost.md   // &lt;- http://1.com/post/firstpost.html
+    |   ├── happy
+    |   |   └── ness.md    // &lt;- http://1.com/post/happy/ness.html
+    |   └── secondpost.md  // &lt;- http://1.com/post/secondpost.html
+    └── quote
+        ├── first.md       // &lt;- http://1.com/quote/first.html
+        └── second.md      // &lt;- http://1.com/quote/second.html
+</code></pre>
+
+<h2 id="destinations">Destinations</h2>
+
+<p>Hugo thinks that you organize your content with a purpose. The same structure
+that works to organize your source content is used to organize the rendered
+site. As displayed above, the organization of the source content will be
+mirrored in the destination.</p>
+
+<p>There are times when one would need more control over their content. In these
+cases there are a variety of things that can be specified in the front matter to
+determine the destination of a specific piece of content.</p>
+
+<p>The following items are defined in order, latter items in the list will override
+earlier settings.</p>
+
+<h3 id="filename">filename</h3>
+
+<p>This isn&rsquo;t in the front matter, but is the actual name of the file minus the
+extension. This will be the name of the file in the destination.</p>
+
+<h3 id="slug">slug</h3>
+
+<p>Defined in the front matter, the slug can take the place of the filename for the
+destination.</p>
+
+<h3 id="filepath">filepath</h3>
+
+<p>The actual path to the file on disk. Destination will create the destination
+with the same path. Includes <a href="http://fizarbd.github.io/web/content/sections">section</a>.</p>
+
+<h3 id="section">section</h3>
+
+<p>section can be provided in the front matter overriding the section derived from
+the source content location on disk. See <a href="http://fizarbd.github.io/web/content/sections">section</a>.</p>
+
+<h3 id="path">path</h3>
+
+<p>path can be provided in the front matter. This will replace the actual
+path to the file on disk. Destination will create the destination with the same
+path. Includes <a href="http://fizarbd.github.io/web/content/sections">section</a>.</p>
+
+<h3 id="url">url</h3>
+
+<p>A complete url can be provided. This will override all the above as it pertains
+to the end destination. This must be the path from the baseurl (starting with a &ldquo;/&rdquo;).
+When a url is provided it will be used exactly. Using url will ignore the
+--uglyurls setting.</p>
+
+<h2 id="path-breakdown-in-hugo">Path breakdown in Hugo</h2>
+
+<h3 id="content">Content</h3>
+
+<pre><code>.             path           slug
+.       ⊢-------^----⊣ ⊢------^-------⊣
+content/extras/indexes/category-example/index.html
+
+
+.       section              slug
+.       ⊢--^--⊣        ⊢------^-------⊣
+content/extras/indexes/category-example/index.html
+
+
+.       section  slug
+.       ⊢--^--⊣⊢--^--⊣
+content/extras/indexes/index.html
+</code></pre>
+
+<h3 id="destination">Destination</h3>
+
+<pre><code>           permalink
+⊢--------------^-------------⊣
+http://spf13.com/projects/hugo
+
+
+   baseUrl       section  slug
+⊢-----^--------⊣ ⊢--^---⊣ ⊢-^⊣
+http://spf13.com/projects/hugo
+
+
+   baseUrl       section          slug
+⊢-----^--------⊣ ⊢--^--⊣        ⊢--^--⊣
+http://spf13.com/extras/indexes/example
+
+
+   baseUrl            path       slug
+⊢-----^--------⊣ ⊢------^-----⊣ ⊢--^--⊣
+http://spf13.com/extras/indexes/example
+
+
+   baseUrl            url
+⊢-----^--------⊣ ⊢-----^-----⊣
+http://spf13.com/projects/hugo
+
+
+   baseUrl               url
+⊢-----^--------⊣ ⊢--------^-----------⊣
+http://spf13.com/extras/indexes/example
+</code></pre>
+
+<p><strong>section</strong> = which type the content is by default</p>
+
+<ul>
+<li>based on content location</li>
+<li>front matter overrides</li>
+</ul>
+
+<p><strong>slug</strong> = name.ext or name/</p>
+
+<ul>
+<li>based on content-name.md</li>
+<li>front matter overrides</li>
+</ul>
+
+<p><strong>path</strong> = section + path to file excluding slug</p>
+
+<ul>
+<li>based on path to content location</li>
+</ul>
+
+<p><strong>url</strong> = relative URL</p>
+
+<ul>
+<li>defined in front matter</li>
+<li>overrides all the above</li>
+</ul>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

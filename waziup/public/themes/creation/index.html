@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Creating a Theme</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo has the ability to create a new theme in your themes directory for you
+using the <code>hugo new</code> command.</p>
+
+<p><code>hugo new theme [name]</code></p>
+
+<p>This command will initialize all of the files and directories a basic theme
+would need. Hugo themes are written in the Go template language. If you are new
+to Go, the <a href="http://fizarbd.github.io/web/layout/go-templates/">Go template primer</a> will help you get started.</p>
+
+<h2 id="theme-components">Theme Components</h2>
+
+<p>A theme consists of templates and static assets such as javascript and css
+files. Themes can also optionally provide <a href="http://fizarbd.github.io/web/content/archetypes">archetypes</a>
+which are archetypal content types used by the <code>hugo new</code> command.</p>
+
+<h3 id="layouts">Layouts</h3>
+
+<p>Hugo is built around the concept that things should be as simple as possible.
+Fundamentally website content is displayed in two different ways, a single
+piece of content and a list of content items. With Hugo a theme layout starts
+with the defaults. As additional layouts are defined they are used for the
+content type or section they apply to. This keeps layouts simple, but permits
+a large amount of flexibility.</p>
+
+<h3 id="single-content">Single Content</h3>
+
+<p>The default single file layout is located at <code>layouts/_default/single.html</code>.</p>
+
+<h3 id="list-of-contents">List of Contents</h3>
+
+<p>The default list file layout is located at <code>layouts/_default/list.html</code></p>
+
+<h3 id="partial-templates">Partial Templates</h3>
+
+<p>Theme creators should liberally use <a href="http://fizarbd.github.io/web/templates/partials">partial templates</a>
+throughout their theme files. Not only is a good DRY practice to include shared
+code, but partials are a special template type that enables the themes end user
+to be able to overwrite just a small piece of a file or inject code into the
+theme from their local /layouts. These partial templates are perfect for easy
+injection into the theme with minimal maintenance to ensure future
+compatibility.</p>
+
+<h3 id="static">Static</h3>
+
+<p>Everything in the static directory will be copied directly into the final site
+when rendered. No structure is provided here to enable complete freedom. It is
+common to organize the static content into</p>
+
+<pre><code>/css
+/js
+/img
+</code></pre>
+
+<p>The actual structure is entirely up to you, the theme creator, on how you would like to organize your files.</p>
+
+<h3 id="archetypes">Archetypes</h3>
+
+<p>If your theme makes use of specific keys in the front matter it is a good idea
+to provide an archetype for each content type you have. Archetypes follow the
+<a href="http://fizarbd.github.io/web/content/archetypes">guidelines provided</a>.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

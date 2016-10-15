@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extras-rsses on Waziup github platform test</title>
+    <link>http://fizarbd.github.io/web/extras/index.xml</link>
+    <description>Recent content in Extras-rsses on Waziup github platform test</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 09 Jul 2013 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://fizarbd.github.io/web/extras/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Aliases</title>
+      <link>http://fizarbd.github.io/web/extras/aliases/</link>
+      <pubDate>Tue, 09 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/aliases/</guid>
+      <description>
+
+&lt;p&gt;For people migrating existing published content to Hugo, there&amp;rsquo;s a good chance
+you need a mechanism to handle redirecting old URLs.&lt;/p&gt;
+
+&lt;p&gt;Luckily, this can be handled easily with aliases in Hugo.&lt;/p&gt;
+
+&lt;h2 id=&#34;example&#34;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;content/posts/my-awesome-blog-post.md&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+aliases:
+    - /posts/my-original-url/
+    - /2010/even-earlier-url.html
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now when you go to any of the aliases locations, they
+will redirect to the page.&lt;/p&gt;
+
+&lt;h2 id=&#34;important-behaviors&#34;&gt;Important Behaviors&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Hugo makes no assumptions about aliases. They also don&amp;rsquo;t change based
+on your UglyUrls setting. You need to provide absolute path to your webroot and the
+complete filename or directory.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Aliases are rendered prior to any content and will be overwritten by
+any content with the same location.&lt;/em&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hugo Builders</title>
+      <link>http://fizarbd.github.io/web/extras/builders/</link>
+      <pubDate>Mon, 26 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/builders/</guid>
+      <description>
+
+&lt;p&gt;Hugo provides the functionality to quickly get a site, theme or page
+started.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-site&#34;&gt;New Site&lt;/h2&gt;
+
+&lt;p&gt;Want to get a site built quickly?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new site /path/to/site
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hugo will create all the needed directories and files to get started
+quickly.&lt;/p&gt;
+
+&lt;p&gt;Hugo will only touch the files and create the directories (in the right
+places), &lt;a href=&#34;http://fizarbd.github.io/web/overview/configuration&#34;&gt;configuration&lt;/a&gt; and content are up to
+you&amp;hellip; but luckily we have builders for content (see below).&lt;/p&gt;
+
+&lt;h2 id=&#34;new-theme&#34;&gt;New Theme&lt;/h2&gt;
+
+&lt;p&gt;Want to design a new theme?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new theme `THEME_NAME`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run from your working directory, this will create a new theme with all
+the needed files in your themes directory. Hugo will provide you with a
+license and theme.toml file with most of the work done for you.&lt;/p&gt;
+
+&lt;p&gt;Follow the &lt;a href=&#34;http://fizarbd.github.io/web/themes/creation&#34;&gt;Theme Creation Guide&lt;/a&gt; once the builder is
+done.&lt;/p&gt;
+
+&lt;h2 id=&#34;new-content&#34;&gt;New Content&lt;/h2&gt;
+
+&lt;p&gt;You will use this builder the most of all. Every time you want to create
+a new piece of content, the content builder will get you started right.&lt;/p&gt;
+
+&lt;p&gt;Leveraging &lt;a href=&#34;http://fizarbd.github.io/web/content/archetypes&#34;&gt;content archetypes&lt;/a&gt; the content builder
+will not only insert the current date and appropriate metadata, but it
+will pre-populate values based on the content type.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo new relative/path/to/content
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This assumes it is being run from your working directory and the content
+path starts from your content directory.&lt;/p&gt;
+
+&lt;p&gt;I typically keep two different terminals open, one to run &lt;code&gt;hugo server
+--watch&lt;/code&gt;, and another to use the builders to create new content.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Comments in Hugo</title>
+      <link>http://fizarbd.github.io/web/extras/comments/</link>
+      <pubDate>Mon, 26 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/comments/</guid>
+      <description>
+
+&lt;p&gt;As Hugo is a static site generator, the content produced is static and
+doesn’t interact with the users. The most common interaction people ask
+for is comment capability.&lt;/p&gt;
+
+&lt;p&gt;Hugo ships with support for &lt;a href=&#34;http://disqus.com&#34;&gt;Disqus&lt;/a&gt;, a third-party
+service that provides comment and community capabilities to website via
+JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Your theme may already support Disqus, but even it if doesn’t, it is easy
+to add.&lt;/p&gt;
+
+&lt;h1 id=&#34;disqus-support&#34;&gt;Disqus Support&lt;/h1&gt;
+
+&lt;h2 id=&#34;adding-disqus-to-a-template&#34;&gt;Adding Disqus to a template&lt;/h2&gt;
+
+&lt;p&gt;Hugo comes with all the code you would need to include load Disqus.
+Simply include the following line where you want your comments to appear:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ template &amp;quot;_internal/disqus.html&amp;quot; . }}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;configuring-disqus&#34;&gt;Configuring Disqus&lt;/h2&gt;
+
+&lt;p&gt;That template requires you to set a single value in your site config file, e.g. config.yaml.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;disqusShortname = &amp;quot;XYW&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Additionally, you can optionally set the following in the front matter
+for a given piece of content:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;disqus_identifier&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disqus_title&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disqus_url&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;conditional-loading-of-disqus-comments&#34;&gt;Conditional Loading of Disqus Comments&lt;/h2&gt;
+
+&lt;p&gt;Users have noticed that enabling Disqus comments when running the Hugo web server on localhost causes the creation of unwanted discussions on the associated Disqus account. In order to prevent this, a slightly tweaked partial template is required. So, rather than using the built-in &lt;code&gt;&amp;quot;_internal/disqus.html&amp;quot;&lt;/code&gt; template referenced above, create a template in your &lt;code&gt;partials&lt;/code&gt; folder that looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&amp;lt;div id=&amp;quot;disqus_thread&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+
+(function() {
+    // Don&#39;t ever inject Disqus on localhost--it creates unwanted
+    // discussions from &#39;localhost:1313&#39; on your Disqus account...
+    if (window.location.hostname == &amp;quot;localhost&amp;quot;)
+        return;
+
+    var dsq = document.createElement(&#39;script&#39;); dsq.type = &#39;text/javascript&#39;; dsq.async = true;
+    var disqus_shortname = &#39;{{ .Site.Params.disqusShortname }}&#39;;
+    dsq.src = &#39;//&#39; + disqus_shortname + &#39;.disqus.com/embed.js&#39;;
+    (document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(dsq);
+})();
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;Please enable JavaScript to view the &amp;lt;a href=&amp;quot;http://disqus.com/?ref_noscript&amp;quot;&amp;gt;comments powered by Disqus.&amp;lt;/a&amp;gt;&amp;lt;/noscript&amp;gt;
+&amp;lt;a href=&amp;quot;http://disqus.com&amp;quot; class=&amp;quot;dsq-brlink&amp;quot;&amp;gt;comments powered by &amp;lt;span class=&amp;quot;logo-disqus&amp;quot;&amp;gt;Disqus&amp;lt;/span&amp;gt;&amp;lt;/a&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that there is a simple &lt;code&gt;if&lt;/code&gt; statement that detects when you are running on localhost and skips the initialization of the Disqus comment injection.&lt;/p&gt;
+
+&lt;p&gt;Now, reference the partial template from your page template:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ partial &amp;quot;disqus.html&amp;quot; . }}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;alternatives&#34;&gt;Alternatives&lt;/h1&gt;
+
+&lt;p&gt;A few alternatives exist to &lt;a href=&#34;http://disqus.com&#34;&gt;Disqus&lt;/a&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://intensedebate.com/&#34;&gt;Intense Debate&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://livefyre.com/&#34;&gt;LiveFyre&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://muut.com&#34;&gt;Moot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://duoshuo.com/&#34;&gt;多说&lt;/a&gt; (&lt;a href=&#34;http://duoshuo.com/&#34;&gt;Duoshuo&lt;/a&gt;, popular in China)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://github.com/spf13/kaiju&#34;&gt;Kaiju&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://github.com/spf13/kaiju&#34;&gt;Kaiju&lt;/a&gt; is an open-source project started
+by &lt;a href=&#34;http://spf13.com&#34;&gt;spf13&lt;/a&gt; (Hugo’s author) to bring easy and fast real
+time discussions to the web.&lt;/p&gt;
+
+&lt;p&gt;Written using Go, Socket.io and MongoDB, it is very fast and easy to
+deploy.&lt;/p&gt;
+
+&lt;p&gt;It is in early development but shows promise. If you have interest,
+please help by contributing whether via a pull request, an issue or even
+just a tweet. Everything helps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Live Reload</title>
+      <link>http://fizarbd.github.io/web/extras/livereload/</link>
+      <pubDate>Mon, 26 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/livereload/</guid>
+      <description>
+
+&lt;p&gt;Hugo may not be the first static site generator to utilize live reload
+technology, but it’s the first to do it right.&lt;/p&gt;
+
+&lt;p&gt;The combination of Hugo’s insane build speed and live reload make
+crafting your content pure joy. Virtually instantly after you hit save
+your rebuilt content will appear in your browser.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-livereload&#34;&gt;Using livereload&lt;/h2&gt;
+
+&lt;p&gt;Hugo comes with livereload built in. There are no additional packages to
+install. A common way to use hugo while developing a site is to have
+hugo run a server and watch for changes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo server --watch
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will run a full functioning web server while simultaneously
+watching your file system for additions, deletions or changes within
+your:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;static files&lt;/li&gt;
+&lt;li&gt;content&lt;/li&gt;
+&lt;li&gt;layouts&lt;/li&gt;
+&lt;li&gt;current theme&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Whenever anything changes Hugo will rebuild the site, continue to serve
+the content and as soon as the build is finished it will tell the
+browser and silently reload the page. Because most hugo builds are so
+fast they are barely noticeable, you merely need to glance at your open
+browser and you will see the change already there.&lt;/p&gt;
+
+&lt;p&gt;This means that keeping the site open on a second monitor (or another
+half of your current monitor), allows you to see exactly what your
+content looks like without even leaving your text editor.&lt;/p&gt;
+
+&lt;h2 id=&#34;disabling-livereload&#34;&gt;Disabling livereload&lt;/h2&gt;
+
+&lt;p&gt;Live reload accomplishes this by injecting javascript into the pages it
+creates that creates a web socket client to the hugo web socket server.&lt;/p&gt;
+
+&lt;p&gt;Awesome for development, but not something you would want to do in
+production. Since many people use &lt;code&gt;hugo server --watch&lt;/code&gt; in production to
+instantly display any updated content, we’ve made it easy to disable the
+live reload functionality.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hugo server --watch --disableLiveReload
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Menus</title>
+      <link>http://fizarbd.github.io/web/extras/menus/</link>
+      <pubDate>Wed, 14 May 2014 02:36:37 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/menus/</guid>
+      <description>
+
+&lt;p&gt;Hugo has a simple yet powerful menu system that permits content to be
+placed in menus with a good degree of control without a lot of work.&lt;/p&gt;
+
+&lt;p&gt;Some of the features of Hugo Menus:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Place content in one or many menus&lt;/li&gt;
+&lt;li&gt;Handle nested menus with unlimited depth&lt;/li&gt;
+&lt;li&gt;Create menu entries without being attached to any content&lt;/li&gt;
+&lt;li&gt;Distinguish active element (and active branch)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;what-is-a-menu&#34;&gt;What is a menu?&lt;/h2&gt;
+
+&lt;p&gt;A menu is a named array of menu entries accessible on the site under
+&lt;code&gt;.Site.Menus&lt;/code&gt; by name. For example, if I have a menu called &lt;code&gt;main&lt;/code&gt;, I would
+access it via &lt;code&gt;.Site.Menus.main&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A menu entry has the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Url&lt;/strong&gt;        string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Name&lt;/strong&gt;       string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Menu&lt;/strong&gt;       string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Identifier&lt;/strong&gt; string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pre&lt;/strong&gt;        template.HTML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Post&lt;/strong&gt;       template.HTML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Weight&lt;/strong&gt;     int&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Parent&lt;/strong&gt;     string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Children&lt;/strong&gt;   Menu&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And the following functions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;HasChildren&lt;/strong&gt; bool&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additionally there are some relevant functions available on the page:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;IsMenuCurrent&lt;/strong&gt; (menu string, menuEntry *MenuEntry ) bool&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HasMenuCurrent&lt;/strong&gt; (menu string, menuEntry *MenuEntry) bool&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;adding-content-to-menus&#34;&gt;Adding content to menus&lt;/h2&gt;
+
+&lt;p&gt;Hugo supports a couple of different methods of adding a piece of content
+to the front matter.&lt;/p&gt;
+
+&lt;h3 id=&#34;simple&#34;&gt;Simple&lt;/h3&gt;
+
+&lt;p&gt;If all you need to do is add an entry to a menu, the simple form works
+well.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A single menu:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu: &amp;quot;main&amp;quot;
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Multiple menus:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu: [&amp;quot;main&amp;quot;, &amp;quot;footer&amp;quot;]
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;advanced&#34;&gt;Advanced&lt;/h3&gt;
+
+&lt;p&gt;If more control is required, then the advanced approach gives you the
+control you want. All of the menu entry properties listed above are
+available.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu:
+  main:
+    parent: &#39;extras&#39;
+    weight: 20
+---
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;adding-non-content-entries-to-a-menu&#34;&gt;Adding (non-content) entries to a menu&lt;/h2&gt;
+
+&lt;p&gt;You can also add entries to menus that aren’t attached to a piece of
+content. This takes place in the sitewide &lt;a href=&#34;http://fizarbd.github.io/web/overview/configuration&#34;&gt;config file&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example (in TOML):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[[menu.main]]
+    name = &amp;quot;about hugo&amp;quot;
+    pre = &amp;quot;&amp;lt;i class=&#39;fa fa-heart&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+    weight = -110
+    identifier = &amp;quot;about&amp;quot;
+[[menu.main]]
+    name = &amp;quot;getting started&amp;quot;
+    pre = &amp;quot;&amp;lt;i class=&#39;fa fa-road&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+    weight = -100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here’s an example (in YAML):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;---
+menu:
+  main:
+      - Name: &amp;quot;about hugo&amp;quot;
+        Pre: &amp;quot;&amp;lt;i class=&#39;fa fa-heart&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+        Weight: -110
+        Identifier: &amp;quot;about&amp;quot;
+      - Name: &amp;quot;getting started&amp;quot;
+        Pre: &amp;quot;&amp;lt;i class=&#39;fa fa-road&#39;&amp;gt;&amp;lt;/i&amp;gt;&amp;quot;
+        Weight: -100
+---            
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;nesting&#34;&gt;Nesting&lt;/h2&gt;
+
+&lt;p&gt;All nesting of content is done via the &lt;code&gt;parent&lt;/code&gt; field.&lt;/p&gt;
+
+&lt;p&gt;The parent of an entry should be the identifier of another entry.
+Identifier should be unique (within a menu).&lt;/p&gt;
+
+&lt;p&gt;The following order is used to determine identity Identifier &amp;gt; Name &amp;gt;
+LinkTitle &amp;gt; Title. This means that the title will be used unless
+linktitle is present, etc. In practice Name and Identifier are never
+displayed and only used to structure relationships.&lt;/p&gt;
+
+&lt;p&gt;In this example, the top level of the menu is defined in the config file
+and all content entries are attached to one of these entries via the
+&lt;code&gt;parent&lt;/code&gt; field.&lt;/p&gt;
+
+&lt;h2 id=&#34;rendering-menus&#34;&gt;Rendering menus&lt;/h2&gt;
+
+&lt;p&gt;Hugo makes no assumptions about how your rendered HTML will be
+structured. Instead, it provides all of the functions you will need to be
+able to build your menu however you want.&lt;/p&gt;
+
+&lt;p&gt;The following is an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;!--sidebar start--&amp;gt;
+&amp;lt;aside&amp;gt;
+    &amp;lt;div id=&amp;quot;sidebar&amp;quot;  class=&amp;quot;nav-collapse &amp;quot;&amp;gt;
+        &amp;lt;!-- sidebar menu start--&amp;gt;
+        &amp;lt;ul class=&amp;quot;sidebar-menu&amp;quot;&amp;gt;
+          {{ $currentNode := . }}
+          {{ range .Site.Menus.main }}
+              {{ if .HasChildren }}
+
+            &amp;lt;li class=&amp;quot;sub-menu{{if $currentNode.HasMenuCurrent &amp;quot;main&amp;quot; . }} active{{end}}&amp;quot;&amp;gt;
+            &amp;lt;a href=&amp;quot;javascript:;&amp;quot; class=&amp;quot;&amp;quot;&amp;gt;
+                {{ .Pre }}
+                &amp;lt;span&amp;gt;{{ .Name }}&amp;lt;/span&amp;gt;
+                &amp;lt;span class=&amp;quot;menu-arrow arrow_carrot-right&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+            &amp;lt;/a&amp;gt;
+            &amp;lt;ul class=&amp;quot;sub&amp;quot;&amp;gt;
+                {{ range .Children }}
+                &amp;lt;li{{if $currentNode.IsMenuCurrent &amp;quot;main&amp;quot; . }} class=&amp;quot;active&amp;quot;{{end}}&amp;gt;&amp;lt;a href=&amp;quot;{{.Url}}&amp;quot;&amp;gt; {{ .Name }} &amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
+                {{ end }}
+            &amp;lt;/ul&amp;gt;
+          {{else}}
+            &amp;lt;li&amp;gt;
+            &amp;lt;a class=&amp;quot;&amp;quot; href=&amp;quot;{{.Url}}&amp;quot;&amp;gt;
+                {{ .Pre }}
+                &amp;lt;span&amp;gt;{{ .Name }}&amp;lt;/span&amp;gt;
+            &amp;lt;/a&amp;gt;
+          {{end}}
+          &amp;lt;/li&amp;gt;
+          {{end}}
+            &amp;lt;li&amp;gt; &amp;lt;a href=&amp;quot;https://github.com/spf13/hugo/issues&amp;quot; target=&amp;quot;blank&amp;quot;&amp;gt;Questions and Issues&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
+            &amp;lt;li&amp;gt; &amp;lt;a href=&amp;quot;#&amp;quot; target=&amp;quot;blank&amp;quot;&amp;gt;Edit this Page&amp;lt;/a&amp;gt; &amp;lt;/li&amp;gt;
+        &amp;lt;/ul&amp;gt;
+        &amp;lt;!-- sidebar menu end--&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/aside&amp;gt;
+&amp;lt;!--sidebar end--&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Permalinks</title>
+      <link>http://fizarbd.github.io/web/extras/permalinks/</link>
+      <pubDate>Mon, 18 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/permalinks/</guid>
+      <description>&lt;p&gt;By default, content is laid out into the target &lt;code&gt;publishdir&lt;/code&gt; (public)
+namespace matching its layout within the &lt;code&gt;contentdir&lt;/code&gt; hierarchy.
+The &lt;code&gt;permalinks&lt;/code&gt; site configuration option allows you to adjust this on a
+per-section basis.
+This will change where the files are written to and will change the page&amp;rsquo;s
+internal &amp;ldquo;canonical&amp;rdquo; location, such that template references to
+&lt;code&gt;.RelPermalink&lt;/code&gt; will honour the adjustments made as a result of the mappings
+in this option.&lt;/p&gt;
+
+&lt;p&gt;For instance, if one of your sections is called &lt;code&gt;post&lt;/code&gt;, and you want to adjust
+the canonical path to be hierarchical based on the year and month, then you
+might use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;permalinks:
+  post: /:year/:month/:title/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Only the content under &lt;code&gt;post/&lt;/code&gt; will be so rewritten.
+A file named &lt;code&gt;content/post/sample-entry&lt;/code&gt; which contains a line
+&lt;code&gt;date: 2013-11-18T19:20:00-05:00&lt;/code&gt; might end up with the rendered page
+appearing at &lt;code&gt;public/2013/11/sample-entry/index.html&lt;/code&gt; and be reachable via
+the URL &lt;a href=&#34;http://yoursite.example.com/2013/11/sample-entry/&#34;&gt;http://yoursite.example.com/2013/11/sample-entry/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The following is a list of values that can be used in a permalink definition.
+All references to time are dependent on the content&amp;rsquo;s date.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;:year&lt;/strong&gt; the 4-digit year&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:month&lt;/strong&gt; the 2-digit month&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:monthname&lt;/strong&gt; the name of the month&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:day&lt;/strong&gt; the 2-digit day&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:weekday&lt;/strong&gt; the 1-digit day of the week (Sunday = 0)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:weekdayname&lt;/strong&gt; the name of the day of the week&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:yearday&lt;/strong&gt; the 1- to 3-digit day of the year&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:section&lt;/strong&gt; the content&amp;rsquo;s section&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:title&lt;/strong&gt; the content&amp;rsquo;s title&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:slug&lt;/strong&gt; the content&amp;rsquo;s slug (or title if no slug)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;:filename&lt;/strong&gt; the content&amp;rsquo;s filename (without extension)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Shortcodes</title>
+      <link>http://fizarbd.github.io/web/extras/shortcodes/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/shortcodes/</guid>
+      <description>
+
+&lt;p&gt;Hugo uses Markdown for its simple content format. However, there’s a lot
+of things that Markdown doesn’t support well.&lt;/p&gt;
+
+&lt;p&gt;We are unwilling to accept being constrained by our simple format. Also
+unacceptable is writing raw HTML in our Markdown every time we want to include
+unsupported content such as a video. To do so is in complete opposition to the
+intent of using a bare bones format for our content and utilizing templates to
+apply styling for display.&lt;/p&gt;
+
+&lt;p&gt;To avoid both of these limitations, Hugo created shortcodes.&lt;/p&gt;
+
+&lt;p&gt;A shortcode is a simple snippet inside a content file that Hugo will render
+using a predefined template. Note that shortcodes will not work in template
+files&amp;mdash;if you need a functionality like that in a template, you most likely
+want a &lt;a href=&#34;http://fizarbd.github.io/web/templates/partial&#34;&gt;partial template&lt;/a&gt; instead.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-a-shortcode&#34;&gt;Using a shortcode&lt;/h2&gt;
+
+&lt;p&gt;In your content files, a shortcode can be called by using &amp;lsquo;`&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Syntax Highlighting</title>
+      <link>http://fizarbd.github.io/web/extras/highlighting/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/highlighting/</guid>
+      <description>
+
+&lt;p&gt;Hugo provides the ability for you to highlight source code in two different
+ways &amp;mdash; either pre-processed server side from your content, or to defer
+the processing to the client side, using a JavaScript library. The advantage of
+server side is that it doesn’t depend on a JavaScript library and consequently
+works very well when read from an RSS feed. The advantage of client side is that
+it doesn’t cost anything when building your site and some of the highlighting
+scripts available cover more languages than Pygments does.&lt;/p&gt;
+
+&lt;p&gt;For the pre-processed approach, Highlighting is performed by an external
+Python-based program called &lt;a href=&#34;http://pygments.org&#34;&gt;Pygments&lt;/a&gt; and is triggered
+via an embedded shortcode. If Pygments is absent from the path, it will
+silently simply pass the content along unhighlighted.&lt;/p&gt;
+
+&lt;h2 id=&#34;server-side&#34;&gt;Server-side&lt;/h2&gt;
+
+&lt;h3 id=&#34;disclaimers&#34;&gt;Disclaimers&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Warning:&lt;/strong&gt; Pygments is relatively slow. Expect much longer build times when using server-side highlighting.&lt;/li&gt;
+&lt;li&gt;Languages available depends on your Pygments installation.&lt;/li&gt;
+&lt;li&gt;Styles are inline in order to be supported in syndicated content when references
+to style sheets are not carried over.&lt;/li&gt;
+&lt;li&gt;We have sought to have the simplest interface possible, which consequently
+limits configuration. An ambitious user is encouraged to extend the current
+functionality to offer more customization.&lt;/li&gt;
+&lt;li&gt;You can change appearance with config options &lt;code&gt;pygmentsstyle&lt;/code&gt;(default
+&lt;code&gt;&amp;quot;monokai&amp;quot;&lt;/code&gt;) and &lt;code&gt;pygmentsuseclasses&lt;/code&gt;(defaut &lt;code&gt;false&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;usage&#34;&gt;Usage&lt;/h3&gt;
+
+&lt;p&gt;Highlight takes exactly one required parameter of language and requires a
+closing shortcode.&lt;/p&gt;
+
+&lt;h3 id=&#34;example&#34;&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;The example has an extra space between the “{{” and “%” characters to prevent rendering here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ % highlight html %}}
+&amp;lt;section id=&amp;quot;main&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;
+   &amp;lt;h1 id=&amp;quot;title&amp;quot;&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
+    {{ range .Data.Pages }}
+        {{ .Render &amp;quot;summary&amp;quot;}}
+    {{ end }}
+  &amp;lt;/div&amp;gt;
+&amp;lt;/section&amp;gt;
+{{ % /highlight %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-output&#34;&gt;Example Output&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;section&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;color: #a6e22e&amp;quot;&amp;gt;id=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #e6db74&amp;quot;&amp;gt;&amp;amp;quot;main&amp;amp;quot;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;gt;&amp;lt;/span&amp;gt;
+  &amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;div&amp;amp;gt;&amp;lt;/span&amp;gt;
+   &amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;h1&amp;lt;/span&amp;gt; &amp;lt;span style=&amp;quot;color: #a6e22e&amp;quot;&amp;gt;id=&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #e6db74&amp;quot;&amp;gt;&amp;amp;quot;title&amp;amp;quot;&amp;lt;/span&amp;gt;&amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;gt;&amp;lt;/span&amp;gt;{{ .Title }}&amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;/h1&amp;amp;gt;&amp;lt;/span&amp;gt;
+    {{ range .Data.Pages }}
+        {{ .Render &amp;amp;quot;summary&amp;amp;quot;}}
+    {{ end }}
+  &amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;/div&amp;amp;gt;&amp;lt;/span&amp;gt;
+&amp;lt;span style=&amp;quot;color: #f92672&amp;quot;&amp;gt;&amp;amp;lt;/section&amp;amp;gt;&amp;lt;/span&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;client-side&#34;&gt;Client-side&lt;/h2&gt;
+
+&lt;p&gt;Alternatively, code highlighting can be done in client-side JavaScript.&lt;/p&gt;
+
+&lt;p&gt;Client-side syntax highlighting is very simple to add. You&amp;rsquo;ll need to pick
+a library and a corresponding theme. Some popular libraries are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://highlightjs.org/&#34;&gt;Highlight.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://craig.is/making/rainbows&#34;&gt;Rainbow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://alexgorbatchev.com/SyntaxHighlighter/&#34;&gt;Syntax Highlighter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://code.google.com/p/google-code-prettify/&#34;&gt;Google Prettify&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This example uses the popular &lt;a href=&#34;http://highlightjs.org/&#34;&gt;Highlight.js&lt;/a&gt; library, hosted by &lt;a href=&#34;http://yandex.ru/&#34;&gt;Yandex&lt;/a&gt;, a
+popular Russian search engine.&lt;/p&gt;
+
+&lt;p&gt;In your &lt;code&gt;./layouts/partials/&lt;/code&gt; (or &lt;code&gt;./layouts/chrome/&lt;/code&gt;) folder, depending on your specific theme, there
+will be a snippet that will be included in every generated HTML page, such
+as &lt;code&gt;header.html&lt;/code&gt; or &lt;code&gt;header.includes.html&lt;/code&gt;. Simply add:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;https://yandex.st/highlightjs/8.0/styles/default.min.css&amp;quot;&amp;gt;
+&amp;lt;script src=&amp;quot;https://yandex.st/highlightjs/8.0/highlight.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script&amp;gt;hljs.initHighlightingOnLoad();&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can of course use your own copy of these files, typically in &lt;code&gt;./static/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Please see individual libraries documentation for how to implement the JavaScript-based libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Table of Contents</title>
+      <link>http://fizarbd.github.io/web/extras/toc/</link>
+      <pubDate>Tue, 09 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/toc/</guid>
+      <description>
+
+&lt;p&gt;Hugo will automatically parse the Markdown for your content and create
+a Table of Contents you can use to guide readers to the sections within
+your content.&lt;/p&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;p&gt;Simply create content like you normally would with the appropriate
+headers.&lt;/p&gt;
+
+&lt;p&gt;Hugo will take this Markdown and create a table of contents stored in the
+&lt;a href=&#34;http://fizarbd.github.io/web/layout/variables&#34;&gt;content variable&lt;/a&gt; &lt;code&gt;.TableOfContents&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;template-example&#34;&gt;Template Example&lt;/h2&gt;
+
+&lt;p&gt;This is example code of a &lt;a href=&#34;http://fizarbd.github.io/web/layout/content&#34;&gt;single.html template&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{ partial &amp;quot;header.html&amp;quot; . }}
+    &amp;lt;div id=&amp;quot;toc&amp;quot; class=&amp;quot;well col-md-4 col-sm-6&amp;quot;&amp;gt;
+    {{ .TableOfContents }}
+    &amp;lt;/div&amp;gt;
+    &amp;lt;h1&amp;gt;{{ .Title }}&amp;lt;/h1&amp;gt;
+    {{ .Content }}
+{{ partial &amp;quot;footer.html&amp;quot; . }}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>URLs</title>
+      <link>http://fizarbd.github.io/web/extras/urls/</link>
+      <pubDate>Fri, 03 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fizarbd.github.io/web/extras/urls/</guid>
+      <description>
+
+&lt;h2 id=&#34;pretty-urls&#34;&gt;Pretty URLs&lt;/h2&gt;
+
+&lt;p&gt;By default Hugo will create content with &amp;lsquo;pretty&amp;rsquo; URLs. For example
+content created at /content/extras/urls.md will be rendered at
+/content/extras/urls/index.html and accessible at /content/extras/urls. No
+no standard server side configuration is required for these pretty urls to
+work.&lt;/p&gt;
+
+&lt;p&gt;If you would like to have ugly URLs, you are in luck. Hugo supports the
+ability to create your entire site with ugly URLs. Simply use the
+&lt;code&gt;--uglyUrls=true&lt;/code&gt; flag on the command line.&lt;/p&gt;
+
+&lt;p&gt;If you want a specific piece of content to have an exact URL, you can
+specify this in the front matter under the url key. See &lt;a href=&#34;http://fizarbd.github.io/web/content/organization/&#34;&gt;Content
+Organization&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;h2 id=&#34;canonicalization&#34;&gt;Canonicalization&lt;/h2&gt;
+
+&lt;p&gt;By default, all relative URLs encountered in the input will be canonicalized
+using &lt;code&gt;baseurl&lt;/code&gt;, so that a link &lt;code&gt;/css/foo.css&lt;/code&gt; becomes
+&lt;code&gt;http://yoursite.example.com/css/foo.css&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Setting &lt;code&gt;canonifyurls&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt; will prevent this canonicalization.&lt;/p&gt;
+
+&lt;p&gt;Benefits of canonicalization include fixing all URLs to be absolute, which may
+aid with some parsing tasks.  Note though that all real browsers handle this
+client-side without issues.&lt;/p&gt;
+
+&lt;p&gt;Benefits of non-canonicalization include being able to have resource inclusion
+be scheme-relative, so that http vs https can be decided based on how this
+page was retrieved.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

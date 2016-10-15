@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Customizing a Theme</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p>Hugo themes permit you to supplement or override any template or file
+from within your working directory.</p>
+
+<h2 id="replacing-static-files">Replacing Static files</h2>
+
+<p>If you would like to include a different file than the theme ships
+with.. For example you would like to use a more recent version of jquery
+then the theme happens to include simply place an identically name file in the same
+relative location but in your working directory. For example if the
+theme has jquery 1.6 in /themes/themename/static/js/jQuery.min.js, simply place your file
+in the same relative path /static/js/jQuery.min.js.</p>
+
+<h2 id="replace-a-single-template-file">Replace a single template file</h2>
+
+<p>Anytime Hugo looks for a matching template it will first check the
+working directory before looking in the theme directory. If you would
+like to modify a template simply create that template in your local
+layouts directory. In the <a href="http://fizarbd.github.io/web/templates/overview">template documentation</a>
+each different template type explains the rules it uses to determine
+which template to use.</p>
+
+<p>This is especially helpful when the theme creator used <a href="http://fizarbd.github.io/web/templates/partials">partial
+templates</a>. These partial templates are perfect for easy
+injection into the theme with minimal maintenance to ensure future
+compatibility.</p>
+
+<p><strong>warning.. This only works for templates that Hugo knows about. If the
+theme imports template files in a creatively named directory
+Hugo won’t know to look for the local /layouts first</strong></p>
+
+<h2 id="replace-an-archetype">Replace an archetype</h2>
+
+<p>If the archetype that ships with the theme for a given content type (or
+all content types) doesn’t fit with how you are using the theme, feel
+free to copy it to your /archetypes directory and make modifications as
+you see fit.</p>
+
+<h2 id="beware-of-the-default">Beware of the default</h2>
+
+<p><strong>Default</strong> is a very powerful force in Hugo&hellip; Especially as it pertains to
+overwriting theme files. If a default is located in the local archetype
+directory or /layouts/_default/ directory it will be used instead of
+any of the similar files in the theme.</p>
+
+<p>It is usually better to override specific files rather than using the
+default in your working directory.</p>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+

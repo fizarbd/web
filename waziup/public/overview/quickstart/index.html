@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hugo Quickstart Guide</title>
+
+    
+    <link href="http://fizarbd.github.io/webcss/bootstrap-theme.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Arbutus+Slab&family=Cabin:600&family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    
+    <link href="http://fizarbd.github.io/webcss/HPstyles.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/hugofont.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.carousel.css" rel="stylesheet">
+    <link href="http://fizarbd.github.io/webcss/owl.theme.default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="http://fizarbd.github.io/web/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="http://fizarbd.github.io/web/apple-touch-icon.png" />
+  </head>
+
+  <body>
+
+
+
+<p><em>This quickstart depends on features introduced in hugo v0.11. If you
+have an earlier version of hugo you will need to <a href="http://fizarbd.github.io/web/overview/installing/">upgrade</a> before
+proceeding.</em></p>
+
+<h2 id="step-1-install-hugo">Step 1. Install Hugo</h2>
+
+<p>Go to <a href="https://github.com/spf13/hugo/releases">Hugo Releases</a> and download the
+appropriate version for your os and architecture.</p>
+
+<p>Save it somewhere specific as we will be using it in the next step.</p>
+
+<p>More complete instructions are available at <a href="http://fizarbd.github.io/web/overview/installing/">Installing Hugo</a></p>
+
+<h2 id="step-2-have-hugo-create-a-site-for-you">Step 2. Have Hugo Create a site for you</h2>
+
+<p>Hugo has the ability to create a skeleton site.</p>
+
+<pre><code>hugo new site /path/to/site
+</code></pre>
+
+<p>For the rest of the operations we will be executing all commands from within the site directory</p>
+
+<pre><code>cd /path/to/site
+</code></pre>
+
+<p>The new site will have the following structure</p>
+
+<pre><code>  ▸ archetypes/
+  ▸ content/
+  ▸ layouts/
+  ▸ static/
+    config.toml
+</code></pre>
+
+<p>Currently the site doesn’t have any content, nor is it configured.</p>
+
+<h2 id="step-3-create-some-content">Step 3. Create Some Content</h2>
+
+<p>Hugo also has the ability to create content for you.</p>
+
+<pre><code>hugo new about.md
+</code></pre>
+
+<p>A new file is now created in <code>content/</code> with the following contents</p>
+
+<pre><code>+++
+draft = true
+title = &quot;about&quot;
+date = 2014-05-20T10:04:31Z
++++
+</code></pre>
+
+<p>Notice the date is automatically set to the moment you created the content.</p>
+
+<p>Place some content in this file below the <code>+++</code> in the Markdown format.</p>
+
+<p>For example you could put this</p>
+
+<pre><code>## A headline
+
+Some Content
+</code></pre>
+
+<p>For fun, let’s create another piece of content and place some Markdown in it as well.</p>
+
+<pre><code>hugo new post/first.md
+</code></pre>
+
+<p>The new file is located at <code>content/post/first.md</code></p>
+
+<p>We still lack any templates to tell us how to display the content.</p>
+
+<h2 id="step-4-install-some-themes">Step 4. Install some themes</h2>
+
+<p>Hugo has rich theme support and a growing set of themes to choose from:</p>
+
+<pre><code>git clone --recursive https://github.com/spf13/hugoThemes themes
+</code></pre>
+
+<h2 id="step-5-run-hugo">Step 5. Run Hugo</h2>
+
+<p>Hugo contains its own high performance web server. Simply run <code>hugo
+server</code> and Hugo will find an available port and run a server with
+your content:</p>
+
+<pre><code>hugo server --theme=hyde --buildDrafts
+2 pages created
+0 tags created
+0 categories created
+in 5 ms
+Serving pages from exampleHugoSite/public
+Web Server is available at http://localhost:1313
+Press ctrl+c to stop
+</code></pre>
+
+<p>We specified two options here:</p>
+
+<ul>
+<li><code>--theme</code> to pick which theme;</li>
+<li><code>--buildDrafts</code> because we want to display our content, both set to draft status.</li>
+</ul>
+
+<p>To learn about what other options hugo has, run:</p>
+
+<pre><code>hugo help
+</code></pre>
+
+<p>To learn about the server options:</p>
+
+<pre><code>hugo help server
+</code></pre>
+
+<h2 id="step-6-edit-content">Step 6. Edit Content</h2>
+
+<p>Not only can Hugo run a server, but it can also watch your files for
+changes and automatically rebuild your site. Hugo will then
+communicate with your browser and automatically reload any open page.
+This even works in mobile browsers.</p>
+
+<p>Stop the Hugo process by hitting ctrl+c. Then run the following:</p>
+
+<pre><code>hugo server --theme=hyde --buildDrafts --watch
+2 pages created
+0 tags created
+0 categories created
+in 5 ms
+Watching for changes in exampleHugoSite/content
+Serving pages from exampleHugoSite/public
+Web Server is available at http://localhost:1313
+Press ctrl+c to stop
+</code></pre>
+
+<p>Open your <a href="http://vim.spf13.com">favorite editor</a>, edit and save your content and watch as Hugo rebuilds and reloads automatically.</p>
+
+<p>It’s especially productive to leave a browser open on a second monitor
+and just glance at it whenever you save. You don’t even need to tab to
+your browser. Hugo is so fast that the new site will be there before
+you can look at the browser in most cases.</p>
+
+<p>Change and save this file. Notice what happened in your terminal.</p>
+
+<pre><code>Change detected, rebuilding site
+
+2 pages created
+0 tags created
+0 categories created
+in 5 ms
+</code></pre>
+
+<h2 id="step-7-have-fun">Step 7. Have fun</h2>
+
+<p>The best way to learn something is to play with it.</p>
+
+<p>Things to try:</p>
+
+<ul>
+<li>Add a <a href="http://fizarbd.github.io/web/content/organization/">new content file</a></li>
+<li>Create a <a href="http://fizarbd.github.io/web/content/sections/">new section</a></li>
+<li>Modify <a href="http://fizarbd.github.io/web/layout/templates/">a template</a></li>
+<li>Create content with <a href="http://fizarbd.github.io/web/content/front-matter/">TOML front matter</a></li>
+<li>Define your own field in <a href="http://fizarbd.github.io/web/content/front-matter/">front matter</a></li>
+<li>Display that <a href="http://fizarbd.github.io/web/layout/variables/">field in the template</a></li>
+<li>Create a <a href="http://fizarbd.github.io/web/content/types/">new content type</a></li>
+</ul>
+
+
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+            <li><a href="http://twitter.com/spf13" class="icon-twitter icon-2x"></a></li>
+            <li><a href="http://github.com/spf13/hugo" class="icon-octocat icon-2x"></a></li>
+        </ul>
+        <hr>
+        <p>Copyright &copy; Steve Francia 2013&ndash;2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="http://fizarbd.github.io/webjs/jquery-2.1.1.min.js"></script>
+<script src="http://fizarbd.github.io/webjs/owl.carousel.min.js"></script>
+
+<script>
+$(function() {
+$('a[href*=#]:not([href=#])').click(function() {
+  if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+      || location.hostname == this.hostname) {
+
+    var target = $(this.hash);
+    target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+    if (target.length) {
+      $('html,body').animate({
+        scrollTop: target.offset().top
+      }, 1000);
+      return false;
+    }
+  }
+});
+});
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+nav:true,
+autoplay:true,
+autoplayHoverPause:true,
+autoplayTimeout:3000,
+responsive:{
+    0:{
+        items:1
+    },
+    1000:{
+        items:3
+    },
+}
+})
+</script>
+
+
+</body>
+
+</html>
+
